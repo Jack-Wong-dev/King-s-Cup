@@ -13,6 +13,10 @@
 		0AD6F54125F342920078B6FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F52C25F342870078B6FF /* ContentView.swift */; };
 		0AD6F54225F342920078B6FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F52D25F342920078B6FF /* Assets.xcassets */; };
 		0AD6F54325F342920078B6FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F52D25F342920078B6FF /* Assets.xcassets */; };
+		0AEBBE8C25F34C1F0035CB24 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBBE8B25F34C1F0035CB24 /* Rank.swift */; };
+		0AEBBE9025F34C5C0035CB24 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBBE8F25F34C5C0035CB24 /* Suit.swift */; };
+		0AEBBE9425F34C740035CB24 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBBE9325F34C740035CB24 /* Card.swift */; };
+		0AEBBE9925F34CA00035CB24 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBBE9825F34CA00035CB24 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		0AD6F53A25F342920078B6FF /* King's Cup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "King's Cup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD6F53C25F342920078B6FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AD6F53D25F342920078B6FF /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		0AEBBE8B25F34C1F0035CB24 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
+		0AEBBE8F25F34C5C0035CB24 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
+		0AEBBE9325F34C740035CB24 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		0AEBBE9825F34CA00035CB24 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,8 @@
 		0AD6F52A25F342870078B6FF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0AEBBE9725F34C960035CB24 /* Views */,
+				0AEBBE8A25F34C150035CB24 /* Models */,
 				0AD6F52B25F342870078B6FF /* King_s_CupApp.swift */,
 				0AD6F52C25F342870078B6FF /* ContentView.swift */,
 				0AD6F52D25F342920078B6FF /* Assets.xcassets */,
@@ -88,6 +98,24 @@
 				0AD6F53D25F342920078B6FF /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		0AEBBE8A25F34C150035CB24 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0AEBBE8B25F34C1F0035CB24 /* Rank.swift */,
+				0AEBBE8F25F34C5C0035CB24 /* Suit.swift */,
+				0AEBBE9325F34C740035CB24 /* Card.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0AEBBE9725F34C960035CB24 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AEBBE9825F34CA00035CB24 /* CardView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +215,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AEBBE8C25F34C1F0035CB24 /* Rank.swift in Sources */,
 				0AD6F54025F342920078B6FF /* ContentView.swift in Sources */,
+				0AEBBE9425F34C740035CB24 /* Card.swift in Sources */,
+				0AEBBE9025F34C5C0035CB24 /* Suit.swift in Sources */,
+				0AEBBE9925F34CA00035CB24 /* CardView.swift in Sources */,
 				0AD6F53E25F342920078B6FF /* King_s_CupApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
