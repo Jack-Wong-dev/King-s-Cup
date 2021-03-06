@@ -11,7 +11,8 @@ import SwiftUI
 struct King_s_CupApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            UsedCardsView()
         }
     }
 }

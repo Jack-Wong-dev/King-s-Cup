@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Suit: String {
+enum Suit: String, CaseIterable {
     case clubs
     case diamonds
     case hearts
