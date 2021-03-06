@@ -7,10 +7,7 @@
 
 import Foundation
 
-enum Rank: String, CaseIterable {
-    typealias title = String
-    typealias description = String
-    
+enum Rank: String, CaseIterable {  
     case ace = "ace"
     case two = "2"
     case three = "3"
