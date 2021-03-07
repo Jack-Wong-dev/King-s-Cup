@@ -2,28 +2,40 @@
 //  CardView.swift
 //  King's Cup (iOS)
 //
-//  Created by Jack Wong on 3/6/21.
+//  Created by Jack Wong on 3/7/21.
 //
 
 import SwiftUI
 
 struct CardView: View {
-    let card: Card
-        
+    @EnvironmentObject var usedCards: UsedCardsViewModel
+    
+    var card: Card
+   
+    @State private var translation: CGSize = .zero
+    @State private var show = false
+    
+    var onRemove: (_ card: Card) -> Void
+    
+    init(_ card: Card, onRemove: @escaping (_ card: Card) -> Void) {
+        self.card = card
+        self.onRemove = onRemove
+    }
+    
     var body: some View {
         VStack {
-            Image(card.image)
-                .resizable()
-                .scaledToFit()
+            CardImage(card: card)
         }
     }
 }
 
 struct CardView_Previews: PreviewProvider {
+    @State static private var usedCards = UsedCardsViewModel()
+    
     static var previews: some View {
-        CardView(card: Card(rank: .ace, suit: .spades))
-            .previewLayout(.sizeThatFits)
-            .frame(width: 200)
-            .padding()
+        CardView(.init(rank: .ace, suit: .diamonds), onRemove: { _ in
+            
+        })
+            .environmentObject(usedCards)
     }
 }

@@ -10,13 +10,13 @@ import SwiftUI
 struct UsedCardsView: View {
 //    @Environment(\.horizontalSizeClass) var horizontalSizeClass
 //    @Environment(\.verticalSizeClass) var verticalSizeClass
-    @StateObject private var usedCardsVM = UsedCardsViewModel()
+    @EnvironmentObject var usedCardsVM: UsedCardsViewModel
     @State private var columns: [GridItem] = [.init(.adaptive(minimum: 150, maximum: 200))]
 
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
-                ForEach(usedCardsVM.cards, content: CardView.init)
+                ForEach(usedCardsVM.usedCards, content: CardImage.init)
             }
             .padding(.horizontal)
         }
@@ -24,8 +24,10 @@ struct UsedCardsView: View {
 }
 
 struct CardsUsed_Previews: PreviewProvider {
+    @StateObject static private var vm = UsedCardsViewModel()
     static var previews: some View {
         UsedCardsView()
+            .environmentObject(vm)
     }
 }
 

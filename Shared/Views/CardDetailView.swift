@@ -15,7 +15,7 @@ struct CardDetailView: View {
             Text(card.title)
                 .font(.title)
                 .fontWeight(.bold)
-            CardView(card: card)
+            CardImage(card: card)
         }
     }
 }
