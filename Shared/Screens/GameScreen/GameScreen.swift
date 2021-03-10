@@ -53,12 +53,6 @@ struct GameScreen: View {
                 .buttonStyle(DefaultButtonStyle())
                 .accentColor(.purple)
             }
-//            .frame(width: contentSize.width, height: contentSize.height )
-//            .onPreferenceChange(SizePreferenceKey.self, perform: { value in
-//                print(value)
-//                contentSize = value
-//            })
-//            .background(Color.yellow)
             .padding()
         }
         .environmentObject(brain)

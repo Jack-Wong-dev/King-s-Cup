@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct CardContentView: View {
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+//    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @EnvironmentObject var usedCards: UsedCardsViewModel
     @EnvironmentObject var brain:  GameViewModel
