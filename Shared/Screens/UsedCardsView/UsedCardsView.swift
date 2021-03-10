@@ -11,12 +11,12 @@ struct UsedCardsView: View {
 //    @Environment(\.horizontalSizeClass) var horizontalSizeClass
 //    @Environment(\.verticalSizeClass) var verticalSizeClass
     @EnvironmentObject var usedCardsVM: UsedCardsViewModel
-    @State private var columns: [GridItem] = [.init(.adaptive(minimum: 150, maximum: 200))]
+    @State private var columns: [GridItem] = [.init(.adaptive(minimum: 100, maximum: 200))]
 
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
-                ForEach(usedCardsVM.usedCards, content: CardImage.init)
+                ForEach(usedCardsVM.usedCards, id: \.self, content: CardImage.init)
             }
             .padding(.horizontal)
         }

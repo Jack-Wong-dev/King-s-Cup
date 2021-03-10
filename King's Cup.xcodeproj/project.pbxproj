@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		0A2F78A925F4A1870057653A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F78A825F4A1870057653A /* CardView.swift */; };
 		0A2F78AD25F4A5870057653A /* TabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F78AC25F4A5870057653A /* TabScreen.swift */; };
+		0A5C6A4125F573340017AF63 /* color-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A4025F573340017AF63 /* color-extension.swift */; };
+		0A5C6A4725F5A5D80017AF63 /* CardScreentest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A4625F5A5D80017AF63 /* CardScreentest.swift */; };
+		0A5C6A5325F602480017AF63 /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A5225F602480017AF63 /* PlayingCard.swift */; };
+		0A5C6A5B25F6E0170017AF63 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A5A25F6E0170017AF63 /* MenuScreen.swift */; };
+		0A5C6A5E25F6E0630017AF63 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A5D25F6E0630017AF63 /* WelcomeScreen.swift */; };
+		0A5C6A6225F6E3190017AF63 /* SelectionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A6125F6E3190017AF63 /* SelectionButtonStyle.swift */; };
+		0AB3C51725F6F681004C3EE2 /* FlipEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3C51625F6F681004C3EE2 /* FlipEffect.swift */; };
+		0AB3C54425F73068004C3EE2 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3C54325F73068004C3EE2 /* Image+Extension.swift */; };
+		0AB3C54925F84A51004C3EE2 /* PreferencesDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3C54825F84A51004C3EE2 /* PreferencesDemo.swift */; };
 		0AD6F53E25F342920078B6FF /* King_s_CupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F52B25F342870078B6FF /* King_s_CupApp.swift */; };
 		0AD6F53F25F342920078B6FF /* King_s_CupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F52B25F342870078B6FF /* King_s_CupApp.swift */; };
 		0AD6F54025F342920078B6FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F52C25F342870078B6FF /* ContentView.swift */; };
@@ -29,6 +38,15 @@
 /* Begin PBXFileReference section */
 		0A2F78A825F4A1870057653A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0A2F78AC25F4A5870057653A /* TabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreen.swift; sourceTree = "<group>"; };
+		0A5C6A4025F573340017AF63 /* color-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "color-extension.swift"; sourceTree = "<group>"; };
+		0A5C6A4625F5A5D80017AF63 /* CardScreentest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScreentest.swift; sourceTree = "<group>"; };
+		0A5C6A5225F602480017AF63 /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
+		0A5C6A5A25F6E0170017AF63 /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
+		0A5C6A5D25F6E0630017AF63 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		0A5C6A6125F6E3190017AF63 /* SelectionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButtonStyle.swift; sourceTree = "<group>"; };
+		0AB3C51625F6F681004C3EE2 /* FlipEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipEffect.swift; sourceTree = "<group>"; };
+		0AB3C54325F73068004C3EE2 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
+		0AB3C54825F84A51004C3EE2 /* PreferencesDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesDemo.swift; sourceTree = "<group>"; };
 		0AD6F52B25F342870078B6FF /* King_s_CupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = King_s_CupApp.swift; sourceTree = "<group>"; };
 		0AD6F52C25F342870078B6FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0AD6F52D25F342920078B6FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +84,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A5C6A3F25F5731F0017AF63 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0A5C6A4025F573340017AF63 /* color-extension.swift */,
+				0A5C6A6125F6E3190017AF63 /* SelectionButtonStyle.swift */,
+				0AB3C54325F73068004C3EE2 /* Image+Extension.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0A5C6A4525F5A5BC0017AF63 /* MenuScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0A5C6A5A25F6E0170017AF63 /* MenuScreen.swift */,
+			);
+			path = MenuScreen;
+			sourceTree = "<group>";
+		};
+		0A5C6A5C25F6E0560017AF63 /* WelcomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0A5C6A5D25F6E0630017AF63 /* WelcomeScreen.swift */,
+			);
+			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		0AB3C51525F6F671004C3EE2 /* FlipEffect */ = {
+			isa = PBXGroup;
+			children = (
+				0AB3C51625F6F681004C3EE2 /* FlipEffect.swift */,
+			);
+			path = FlipEffect;
+			sourceTree = "<group>";
+		};
+		0AB3C54725F84A0B004C3EE2 /* ViewPreferenceDemo */ = {
+			isa = PBXGroup;
+			children = (
+				0AB3C54825F84A51004C3EE2 /* PreferencesDemo.swift */,
+			);
+			path = ViewPreferenceDemo;
+			sourceTree = "<group>";
+		};
 		0AD6F52525F342870078B6FF = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +139,9 @@
 		0AD6F52A25F342870078B6FF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0AB3C54725F84A0B004C3EE2 /* ViewPreferenceDemo */,
+				0AB3C51525F6F671004C3EE2 /* FlipEffect */,
+				0A5C6A3F25F5731F0017AF63 /* Utilities */,
 				0AEBBE9C25F34F150035CB24 /* Screens */,
 				0AEBBE9725F34C960035CB24 /* Views */,
 				0AEBBE8A25F34C150035CB24 /* Models */,
@@ -138,6 +201,8 @@
 		0AEBBE9C25F34F150035CB24 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				0A5C6A5C25F6E0560017AF63 /* WelcomeScreen */,
+				0A5C6A4525F5A5BC0017AF63 /* MenuScreen */,
 				0AEBBEB025F362360035CB24 /* GameScreen */,
 				0AEBBEA125F352EE0035CB24 /* UsedCardsView */,
 			);
@@ -156,6 +221,8 @@
 		0AEBBEB025F362360035CB24 /* GameScreen */ = {
 			isa = PBXGroup;
 			children = (
+				0A5C6A4625F5A5D80017AF63 /* CardScreentest.swift */,
+				0A5C6A5225F602480017AF63 /* PlayingCard.swift */,
 				0AEBBEB125F362490035CB24 /* GameScreen.swift */,
 				0AEBBEB525F3626B0035CB24 /* GameViewModel.swift */,
 				0A2F78AC25F4A5870057653A /* TabScreen.swift */,
@@ -261,18 +328,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AEBBEAD25F357400035CB24 /* CardDetailView.swift in Sources */,
+				0A5C6A4125F573340017AF63 /* color-extension.swift in Sources */,
 				0AEBBEB225F362490035CB24 /* GameScreen.swift in Sources */,
+				0A5C6A4725F5A5D80017AF63 /* CardScreentest.swift in Sources */,
 				0A2F78AD25F4A5870057653A /* TabScreen.swift in Sources */,
 				0AEBBE8C25F34C1F0035CB24 /* Rank.swift in Sources */,
+				0A5C6A6225F6E3190017AF63 /* SelectionButtonStyle.swift in Sources */,
 				0AEBBEB625F3626B0035CB24 /* GameViewModel.swift in Sources */,
+				0A5C6A5B25F6E0170017AF63 /* MenuScreen.swift in Sources */,
 				0AD6F54025F342920078B6FF /* ContentView.swift in Sources */,
 				0AEBBE9425F34C740035CB24 /* Card.swift in Sources */,
 				0AEBBE9025F34C5C0035CB24 /* Suit.swift in Sources */,
+				0A5C6A5325F602480017AF63 /* PlayingCard.swift in Sources */,
+				0AB3C54925F84A51004C3EE2 /* PreferencesDemo.swift in Sources */,
+				0A5C6A5E25F6E0630017AF63 /* WelcomeScreen.swift in Sources */,
+				0AB3C54425F73068004C3EE2 /* Image+Extension.swift in Sources */,
 				0AEBBE9E25F34F290035CB24 /* UsedCardsView.swift in Sources */,
 				0AEBBEA325F3532B0035CB24 /* UsedCardsViewModel.swift in Sources */,
 				0AEBBE9925F34CA00035CB24 /* CardImage.swift in Sources */,
 				0A2F78A925F4A1870057653A /* CardView.swift in Sources */,
 				0AD6F53E25F342920078B6FF /* King_s_CupApp.swift in Sources */,
+				0AB3C51725F6F681004C3EE2 /* FlipEffect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

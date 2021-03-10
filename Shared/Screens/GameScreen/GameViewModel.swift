@@ -9,14 +9,24 @@ import Foundation
 import Combine
 
 class GameViewModel: ObservableObject {
+    @Published var currentCard: Card?
     @Published var cards = [Card]()
     
+    var cardShown: Card? {
+        cards.last
+    }
+    
     init() {
-        shuffle()
+        restart()
     }
     
     func restart() {
         shuffle()
+        fetchNextCard()
+    }
+    
+    func fetchNextCard() {
+        currentCard = cards.popLast()
     }
     
     private func shuffle() {

@@ -13,8 +13,9 @@ struct King_s_CupApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            GameScreen()
-            TabScreen()
+            GameScreen()
+//                FlipDemo()
+                .buttonStyle(SelectionButtonStyle())
                 .environmentObject(usedCards)
         }
     }

@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Card: Identifiable {
-    var id = UUID()
+struct Card: Identifiable, Hashable, Equatable {
+    var id: String { title }
+    
     let rank: Rank
     let suit: Suit
     
