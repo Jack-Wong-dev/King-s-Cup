@@ -28,12 +28,12 @@ struct PlayingCard: View {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .offset(
-                x: currentCard == card ? dragState.translation.width: 0,
-                y: currentCard == card ? dragState.translation.height: 0
+                x: dragState.translation.width,
+                y: dragState.translation.height
             )
-            .scaleEffect(dragState.isDragging && currentCard == card ? 0.85 : 1.0)
+            .scaleEffect(dragState.isDragging ? 0.85 : 1.0)
             .rotationEffect(
-                Angle(degrees: currentCard == card ? .init(dragState.translation.width / 24) : 0)
+                Angle(degrees: .init(dragState.translation.width / 24))
             )
             .animation(.interpolatingSpring(stiffness: 120, damping: 120))
             .gesture(

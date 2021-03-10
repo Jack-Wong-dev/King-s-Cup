@@ -28,7 +28,6 @@ struct CardContentView: View {
                     Spacer(minLength: 0)
                     
                     PlayingCard(card: card, proxy: proxy, flipped: $flipped, flip: $flip)
-                        .zIndex(card == currentCard ? 10 : 0)
                         .shadow(radius: 10)
                         .padding()
                     
@@ -53,7 +52,6 @@ struct CardContentView: View {
                         .frame(maxHeight: proxy.size.height / 2)
                         .shadow(radius: 10)
                         .padding()
-                        .zIndex(card == currentCard ? 10 : 0)
                     
                     VStack(spacing: 20) {
                         Text(card.rank.ruleTitle)
