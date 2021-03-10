@@ -30,6 +30,7 @@ struct CardContentView: View {
                     PlayingCard(card: card, proxy: proxy, flipped: $flipped, flip: $flip)
                         .shadow(radius: 10)
                         .padding()
+                        .zIndex(100)
                     
                     Spacer(minLength: 0)
 
@@ -52,6 +53,7 @@ struct CardContentView: View {
                         .frame(maxHeight: proxy.size.height / 2)
                         .shadow(radius: 10)
                         .padding()
+                        .zIndex(100)    
                     
                     VStack(spacing: 20) {
                         Text(card.rank.ruleTitle)

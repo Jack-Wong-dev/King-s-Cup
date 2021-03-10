@@ -44,14 +44,15 @@ struct GameScreen: View {
                     
                     ForEach(brain.cards.suffix(1)) { card in
                         CardContentView(card: card)
-                            .zIndex(10)
+                            .zIndex(100)
                     }
                 }
-                .zIndex(1)
+                .zIndex(10)
                 
                 if verticalSizeClass == .compact {
                     HStack(alignment: .bottom) {
                         Text("Cards Remaining: \(brain.cards.count - 1 > 0 ?  brain.cards.count - 1 : 0 )")
+                            .foregroundColor(.purple)
                         
                         Spacer(minLength: 0)
 
@@ -69,6 +70,7 @@ struct GameScreen: View {
                 } else {
                     HStack(alignment: .bottom) {
                         Text("Cards Remaining: \(brain.cards.count - 1 > 0 ?  brain.cards.count - 1 : 0 )")
+                            .foregroundColor(.purple)
                         
                         Spacer(minLength: 0)
 
