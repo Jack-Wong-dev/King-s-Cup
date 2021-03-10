@@ -44,6 +44,7 @@ struct GameScreen: View {
                     
                     ForEach(brain.cards.suffix(1)) { card in
                         CardContentView(card: card)
+                            .zIndex(10)
                     }
                 }
                 .zIndex(1)

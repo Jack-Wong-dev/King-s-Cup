@@ -21,7 +21,7 @@ struct PlayingCard: View {
     @Binding var flipped: Bool
     @Binding var flip: Bool
 
-    var currentCard: Card? { brain.cards.last }
+//    var currentCard: Card? { brain.cards.last }
     
     var body: some View {
         Image(flipped == true ?  card.image : "cardBack2" )
@@ -77,11 +77,11 @@ struct PlayingCard: View {
 //    }
     
     private func animateIfFirstCard() {
-        if currentCard == card {
+//        if currentCard == card {
             withAnimation(.spring()) {
                 flip = true
             }
-        }
+//        }
     }
     
     private func fetchNextCard() {
