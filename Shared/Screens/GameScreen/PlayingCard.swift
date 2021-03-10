@@ -14,12 +14,11 @@ struct PlayingCard: View {
     @State private var translation: CGSize = .zero
     
     var card: Card
-    var proxy: GeometryProxy
     
     private let dragAreaThreshold: CGFloat = 65.0
     
-    @Binding var flipped: Bool
-    @Binding var flip: Bool
+    @State var flipped: Bool = false
+    @State var flip: Bool = false
 
 //    var currentCard: Card? { brain.cards.last }
     

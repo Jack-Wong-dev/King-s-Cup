@@ -21,81 +21,24 @@ struct GameScreen: View {
         GeometryReader { proxy in
             ZStack(alignment: .bottomTrailing) {
                 Color.background.ignoresSafeArea()
-                
-                if brain.cards.isEmpty {
-                    VStack(spacing: 20) {
-                        Text("No more cards.  Play again?")
-                       
-                        Button(action: restart) {
-                            Image(systemName: "play")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 24, height: 24)
-                        }
-                        .accentColor(.purple)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }
-                
+            
                 ZStack {
                     if brain.cards.count > 1 {
-                        CardContentView(card: Card(rank: .ace, suit: .clubs))
+                        Image.cardBack
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
                     }
                     
                     ForEach(brain.cards.suffix(1)) { card in
-                        CardContentView(card: card)
-                            .zIndex(100)
+                        PlayingCard(card: card)
                     }
                 }
                 .zIndex(10)
                 
-                if verticalSizeClass == .compact {
-                    HStack(alignment: .bottom) {
-                        Text("Cards Remaining: \(brain.cards.count - 1 > 0 ?  brain.cards.count - 1 : 0 )")
-                            .foregroundColor(.purple)
-                        
-                        Spacer(minLength: 0)
-
-                        Button(action: restart) {
-                            Image(systemName: "gearshape")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 36, height: 36)
-                        }
-                        .buttonStyle(DefaultButtonStyle())
-                        .accentColor(.purple)
-                    }
-                    .frame(width: proxy.size.width / 2)
-                    .padding()
-                } else {
-                    HStack(alignment: .bottom) {
-                        Text("Cards Remaining: \(brain.cards.count - 1 > 0 ?  brain.cards.count - 1 : 0 )")
-                            .foregroundColor(.purple)
-                        
-                        Spacer(minLength: 0)
-
-                        Button(action: restart) {
-                            Image(systemName: "gearshape")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 36, height: 36)
-                        }
-                        .buttonStyle(DefaultButtonStyle())
-                        .accentColor(.purple)
-                    }
-                    .padding()
-                }
+                GameHUD()
             }
         }
         .environmentObject(brain)
-    }
-    
-    
-    private func restart() {
-        withAnimation {
-            brain.restart()
-            usedCards.restart()
-        }
     }
 }
 
