@@ -41,7 +41,6 @@ struct CardContentView: View {
                     }
                     .frame(width: proxy.size.width / 2)
                     .opacity(card == currentCard ? 1 : 0)
-                    .modifier(SizeModifier())
                 }
                 .frame(
                     width: proxy.frame(in: .global).width,
@@ -63,7 +62,6 @@ struct CardContentView: View {
                     }
                     .padding()
                     .opacity(card == currentCard ? 1 : 0)
-                    .modifier(SizeModifier())
                     
                     Spacer(minLength: 0)
                 }

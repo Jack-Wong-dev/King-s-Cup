@@ -45,7 +45,6 @@ struct PlayingCard: View {
                     .onEnded(onEnded)
             )
             .modifier(FlipEffect(flipped: $flipped, angle: flip ? 180 : 0))
-            .onChange(of: currentCard, perform: flipCard)
             .onAppear(perform: animateIfFirstCard)
     }
   
@@ -69,13 +68,13 @@ struct PlayingCard: View {
         }
     }
     
-    private func flipCard(_ newCard: Card?) {
-        if newCard == card {
-            withAnimation(.spring()){
-                flip = true
-            }
-        }
-    }
+//    private func flipCard(_ newCard: Card?) {
+//        if newCard == card {
+//            withAnimation(.spring()){
+//                flip = true
+//            }
+//        }
+//    }
     
     private func animateIfFirstCard() {
         if currentCard == card {

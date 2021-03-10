@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GameScreen: View {
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @EnvironmentObject var usedCards: UsedCardsViewModel
     @StateObject private var brain = GameViewModel()
     
@@ -16,44 +18,71 @@ struct GameScreen: View {
     var currentCard: Card? { brain.cards.last }
     
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            Color.background.ignoresSafeArea()
-            
-            if brain.cards.isEmpty {
-                VStack(spacing: 20) {
-                    Text("No more cards.  Play again?")
-                   
-                    Button(action: restart) {
-                        Image(systemName: "play")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 24, height: 24)
+        GeometryReader { proxy in
+            ZStack(alignment: .bottomTrailing) {
+                Color.background.ignoresSafeArea()
+                
+                if brain.cards.isEmpty {
+                    VStack(spacing: 20) {
+                        Text("No more cards.  Play again?")
+                       
+                        Button(action: restart) {
+                            Image(systemName: "play")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 24, height: 24)
+                        }
+                        .accentColor(.purple)
                     }
-                    .accentColor(.purple)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
-            
-            ZStack {
-                ForEach(brain.cards.suffix(2)) { card in
-                    CardContentView(card: card)
+                
+                ZStack {
+                    if brain.cards.count > 1 {
+                        CardContentView(card: Card(rank: .ace, suit: .clubs))
+                    }
+                    
+                    ForEach(brain.cards.suffix(1)) { card in
+                        CardContentView(card: card)
+                    }
                 }
-            }
-            .zIndex(1)
-            
-            HStack(alignment: .bottom) {
-                Text("Cards Remaining: \(brain.cards.count - 1 > 0 ?  brain.cards.count - 1 : 0 )")
+                .zIndex(1)
+                
+                if verticalSizeClass == .compact {
+                    HStack(alignment: .bottom) {
+                        Text("Cards Remaining: \(brain.cards.count - 1 > 0 ?  brain.cards.count - 1 : 0 )")
+                        
+                        Spacer(minLength: 0)
 
-                Button(action: restart) {
-                    Image(systemName: "gearshape")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 36, height: 36)
+                        Button(action: restart) {
+                            Image(systemName: "gearshape")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 36, height: 36)
+                        }
+                        .buttonStyle(DefaultButtonStyle())
+                        .accentColor(.purple)
+                    }
+                    .frame(width: proxy.size.width / 2)
+                    .padding()
+                } else {
+                    HStack(alignment: .bottom) {
+                        Text("Cards Remaining: \(brain.cards.count - 1 > 0 ?  brain.cards.count - 1 : 0 )")
+                        
+                        Spacer(minLength: 0)
+
+                        Button(action: restart) {
+                            Image(systemName: "gearshape")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 36, height: 36)
+                        }
+                        .buttonStyle(DefaultButtonStyle())
+                        .accentColor(.purple)
+                    }
+                    .padding()
                 }
-                .buttonStyle(DefaultButtonStyle())
-                .accentColor(.purple)
             }
-            .padding()
         }
         .environmentObject(brain)
     }
