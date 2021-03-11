@@ -14,18 +14,16 @@ struct PlayingCard: View {
     @State private var translation: CGSize = .zero
     
     var card: Card
-    
     private let dragAreaThreshold: CGFloat = 65.0
     
     @State var flipped: Bool = false
     @State var flip: Bool = false
-
-//    var currentCard: Card? { brain.cards.last }
     
     var body: some View {
         Image(flipped == true ?  card.image : "cardBack2" )
             .resizable()
             .aspectRatio(contentMode: .fit)
+            .shadow(color: Color.shadow.opacity(0.5), radius: 10, x: 0, y: 5)
             .offset(
                 x: dragState.translation.width,
                 y: dragState.translation.height
@@ -44,7 +42,7 @@ struct PlayingCard: View {
                     .onEnded(onEnded)
             )
             .modifier(FlipEffect(flipped: $flipped, angle: flip ? 180 : 0))
-            .onAppear(perform: animateIfFirstCard)
+            .onAppear(perform: flipCard)
     }
   
     //MARK: - Methods
@@ -67,20 +65,10 @@ struct PlayingCard: View {
         }
     }
     
-//    private func flipCard(_ newCard: Card?) {
-//        if newCard == card {
-//            withAnimation(.spring()){
-//                flip = true
-//            }
-//        }
-//    }
-    
-    private func animateIfFirstCard() {
-//        if currentCard == card {
-            withAnimation(.spring()) {
-                flip = true
-            }
-//        }
+    private func flipCard() {
+        withAnimation(.spring()) {
+            flip = true
+        }
     }
     
     private func fetchNextCard() {

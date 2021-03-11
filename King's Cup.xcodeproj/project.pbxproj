@@ -23,6 +23,8 @@
 		0AD6F54225F342920078B6FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F52D25F342920078B6FF /* Assets.xcassets */; };
 		0AD6F54325F342920078B6FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD6F52D25F342920078B6FF /* Assets.xcassets */; };
 		0AE8186D25F985A800C78989 /* GameHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8186C25F985A800C78989 /* GameHUD.swift */; };
+		0AE8187125F98C1400C78989 /* DragState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8187025F98C1400C78989 /* DragState.swift */; };
+		0AE8187525F9915100C78989 /* CurrentCardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8187425F9915100C78989 /* CurrentCardDetail.swift */; };
 		0AEBBE8C25F34C1F0035CB24 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBBE8B25F34C1F0035CB24 /* Rank.swift */; };
 		0AEBBE9025F34C5C0035CB24 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBBE8F25F34C5C0035CB24 /* Suit.swift */; };
 		0AEBBE9425F34C740035CB24 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBBE9325F34C740035CB24 /* Card.swift */; };
@@ -53,6 +55,8 @@
 		0AD6F53C25F342920078B6FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AD6F53D25F342920078B6FF /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		0AE8186C25F985A800C78989 /* GameHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHUD.swift; sourceTree = "<group>"; };
+		0AE8187025F98C1400C78989 /* DragState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragState.swift; sourceTree = "<group>"; };
+		0AE8187425F9915100C78989 /* CurrentCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCardDetail.swift; sourceTree = "<group>"; };
 		0AEBBE8B25F34C1F0035CB24 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		0AEBBE8F25F34C5C0035CB24 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
 		0AEBBE9325F34C740035CB24 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				0AEBBE8B25F34C1F0035CB24 /* Rank.swift */,
 				0AEBBE8F25F34C5C0035CB24 /* Suit.swift */,
 				0AEBBE9325F34C740035CB24 /* Card.swift */,
+				0AE8187025F98C1400C78989 /* DragState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				0A5C6A5225F602480017AF63 /* PlayingCard.swift */,
+				0AE8187425F9915100C78989 /* CurrentCardDetail.swift */,
 				0AEBBEB125F362490035CB24 /* GameScreen.swift */,
 				0AEBBEB525F3626B0035CB24 /* GameViewModel.swift */,
 				0AE8186C25F985A800C78989 /* GameHUD.swift */,
@@ -334,6 +340,7 @@
 				0AD6F54025F342920078B6FF /* ContentView.swift in Sources */,
 				0AEBBE9425F34C740035CB24 /* Card.swift in Sources */,
 				0AEBBE9025F34C5C0035CB24 /* Suit.swift in Sources */,
+				0AE8187525F9915100C78989 /* CurrentCardDetail.swift in Sources */,
 				0A5C6A5325F602480017AF63 /* PlayingCard.swift in Sources */,
 				0AB3C54925F84A51004C3EE2 /* PreferencesDemo.swift in Sources */,
 				0A5C6A5E25F6E0630017AF63 /* WelcomeScreen.swift in Sources */,
@@ -341,6 +348,7 @@
 				0AEBBE9E25F34F290035CB24 /* UsedCardsView.swift in Sources */,
 				0AEBBEA325F3532B0035CB24 /* UsedCardsViewModel.swift in Sources */,
 				0AE8186D25F985A800C78989 /* GameHUD.swift in Sources */,
+				0AE8187125F98C1400C78989 /* DragState.swift in Sources */,
 				0AEBBE9925F34CA00035CB24 /* CardImage.swift in Sources */,
 				0A2F78A925F4A1870057653A /* CardView.swift in Sources */,
 				0AD6F53E25F342920078B6FF /* King_s_CupApp.swift in Sources */,

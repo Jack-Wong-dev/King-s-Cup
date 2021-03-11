@@ -9,24 +9,25 @@ import Foundation
 import Combine
 
 class GameViewModel: ObservableObject {
-    @Published var currentCard: Card?
     @Published var cards = [Card]()
+    @Published private(set) var kingCounter = 0
     
-    var cardShown: Card? {
-        cards.last
-    }
+    var cancellable: AnyCancellable?
     
     init() {
         restart()
+        
+        cancellable = $cards
+            .sink(receiveValue: { [unowned self] card in
+                if card.last?.rank == Rank.king {
+                    self.kingCounter += 1
+                }
+            })
     }
     
     func restart() {
+        kingCounter = 0
         shuffle()
-        fetchNextCard()
-    }
-    
-    func fetchNextCard() {
-        currentCard = cards.popLast()
     }
     
     private func shuffle() {

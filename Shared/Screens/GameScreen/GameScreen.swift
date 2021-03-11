@@ -14,28 +14,64 @@ struct GameScreen: View {
     @StateObject private var brain = GameViewModel()
     
     @State private var showMenu = false
-
-    var currentCard: Card? { brain.cards.last }
     
     var body: some View {
         GeometryReader { proxy in
-            ZStack(alignment: .bottomTrailing) {
+            ZStack {
                 Color.background.ignoresSafeArea()
-            
-                ZStack {
-                    if brain.cards.count > 1 {
-                        Image.cardBack
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+                
+                if verticalSizeClass == .compact {
+                    HStack {
+                        ZStack {
+                            if brain.cards.count > 1 {
+                                Image.cardBack
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .shadow(color: Color.shadow.opacity(0.5), radius: 10, x: 0, y: 5)
+                                    .padding()
+                            }
+                                                
+                            ForEach(brain.cards.suffix(1)) { card in
+                                PlayingCard(card: card)
+                                    .padding()
+                            }
+                        }
+                        .frame(width: proxy.size.width / 2)
+                        .zIndex(10)
+                        
+                        VStack {
+                            Spacer(minLength: 0)
+                            CurrentCardDetail()
+                            Spacer(minLength: 0)
+                            GameHUD()
+                        }
+                        .frame(width: proxy.size.width / 2)
                     }
-                    
-                    ForEach(brain.cards.suffix(1)) { card in
-                        PlayingCard(card: card)
+                } else {
+                    VStack {
+                        ZStack {
+                            if brain.cards.count > 1 {
+                                Image.cardBack
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .shadow(color: Color.shadow.opacity(0.5), radius: 10, x: 0, y: 5)
+                                    .padding()
+                            }
+                                                
+                            ForEach(brain.cards.suffix(1)) { card in
+                                PlayingCard(card: card)
+                                    .padding()
+                            }
+                        }
+                        .zIndex(10)
+                        
+                        VStack {
+                            CurrentCardDetail()
+                            Spacer(minLength: 0)
+                            GameHUD()
+                        }
                     }
                 }
-                .zIndex(10)
-                
-                GameHUD()
             }
         }
         .environmentObject(brain)
@@ -51,38 +87,3 @@ struct GameScreen_Previews: PreviewProvider {
 //            .preferredColorScheme(.dark)
     }
 }
-
-
-enum DragState {
-    case inactive
-    case pressing
-    case dragging(translation: CGSize)
-    
-    var translation: CGSize {
-        switch self {
-        case .inactive, .pressing:
-            return .zero
-        case .dragging(let translation):
-            return translation
-        }
-    }
-
-    var isDragging: Bool {
-        switch self {
-        case .dragging:
-            return true
-        case .pressing, .inactive:
-            return false
-        }
-    }
-
-    var isPressing: Bool {
-        switch self {
-        case .pressing, .dragging:
-            return true
-        case .inactive:
-            return false
-        }
-    }
-}
-

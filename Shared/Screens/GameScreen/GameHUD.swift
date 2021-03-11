@@ -10,10 +10,14 @@ import SwiftUI
 struct GameHUD: View {
     @EnvironmentObject var usedCards: UsedCardsViewModel
     @EnvironmentObject var brain: GameViewModel
+    
     var body: some View {
         HStack(alignment: .bottom) {
-            Text("Cards Remaining: \(brain.cards.count - 1 > 0 ?  brain.cards.count - 1 : 0 )")
-                .foregroundColor(.purple)
+            VStack(alignment: .leading) {
+                Text("King : \(brain.kingCounter) / 4")
+                Text("Cards Remaining: \(brain.cards.count - 1 > 0 ?  brain.cards.count - 1 : 0 )")
+            }
+            .foregroundColor(.purple)
             
             Spacer(minLength: 0)
 
