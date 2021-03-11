@@ -13,14 +13,15 @@ struct GameScreen: View {
     @EnvironmentObject var usedCards: UsedCardsViewModel
     @StateObject private var brain = GameViewModel()
     
-    @State private var showMenu = false
-    
+    var gameState: GameState { brain.gameState }
+    var showMenu: Bool { gameState == .menu }
+        
     var body: some View {
         GeometryReader { proxy in
             ZStack {
                 Color.background.ignoresSafeArea()
                 
-                if brain.cards.isEmpty {
+                if gameState == .finished {
                     ZStack {
                         VStack {
                             Text("No more cards. Play again?")
@@ -41,8 +42,8 @@ struct GameScreen: View {
                             .frame(width: proxy.size.width / 2)
                             .zIndex(10)
                         
-                        VStack {                            
-                            CurrentCardDetail()
+                        VStack {
+                            CurrentCardDetail(titleSize: 30, descriptionSize: 24)
                             
                             Spacer(minLength: 0)
                             
@@ -66,6 +67,15 @@ struct GameScreen: View {
                 }
             }
         }
+        .disabled(showMenu)
+        .blur(radius: showMenu ? 3 : 0)
+        .overlay(
+            Group {
+                if gameState == .menu {
+                    MenuScreen()
+                }
+            }
+        )
         .environmentObject(brain)
     }
 }

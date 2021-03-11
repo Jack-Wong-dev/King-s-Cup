@@ -10,6 +10,8 @@ import Combine
 
 enum GameState {
     case start
+    case menu
+    case resume
     case finished
 }
 
@@ -21,7 +23,7 @@ class GameViewModel: ObservableObject {
     var cancellable: AnyCancellable?
     var gameToken: AnyCancellable?
     
-    init() {
+    init() {        
         gameToken = $gameState
             .sink(receiveValue: { [unowned self] state in
                 if case .start = state {

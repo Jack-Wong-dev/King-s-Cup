@@ -14,14 +14,15 @@ struct GameHUD: View {
     var body: some View {
         HStack(alignment: .bottom) {
             VStack(alignment: .leading) {
-                Text("King : \(brain.kingCounter) / 4")
-                Text("Cards Remaining: \(brain.cards.count - 1 > 0 ?  brain.cards.count - 1 : 0 )")
+                Text("King : \(brain.kingCounter) / 4").fontWeight(.semibold)
+                Text("Cards Remaining: \(brain.cards.count - 1 > 0 ?  brain.cards.count - 1 : 0 )").fontWeight(.semibold)
             }
+            .font(.system(Font.TextStyle.body, design: .rounded))
             .foregroundColor(.purple)
             
             Spacer(minLength: 0)
 
-            Button(action: restart) {
+            Button(action: showMenu) {
                 Image(systemName: "gearshape")
                     .resizable()
                     .scaledToFit()
@@ -30,7 +31,13 @@ struct GameHUD: View {
             .buttonStyle(DefaultButtonStyle())
             .accentColor(.purple)
         }
-        .padding()
+        .padding(.horizontal)
+    }
+    
+    private func showMenu() {
+        withAnimation {
+            brain.gameState = .menu
+        }
     }
     
     private func restart() {

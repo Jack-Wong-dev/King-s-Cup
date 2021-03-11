@@ -15,12 +15,11 @@ struct CurrentCardDetail: View {
     var currentCard: Card? { brain.cards.last }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 4) {
             if let card = currentCard {
                 Text(card.rank.ruleTitle)
                     .font(.system(size: titleSize, weight: .heavy, design: .rounded))
                     .fontWeight(.black)
-                    .padding(.bottom)
                                 
                 ScrollView {
                     Text(card.rank.ruleDescription)

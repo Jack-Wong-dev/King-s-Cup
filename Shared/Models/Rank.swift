@@ -33,9 +33,9 @@ enum Rank: String, CaseIterable {
         case .four:
             return "Floor"
         case .five:
-            return "Guys"
+            return "Kings"
         case .six:
-            return "Chicks"
+            return "Queens"
         case .seven:
             return "Heaven"
         case .eight:
@@ -45,7 +45,7 @@ enum Rank: String, CaseIterable {
         case .ten:
             return "Categories"
         case .jack:
-            return "Never have I ever"
+            return "Rule"
         case .queen:
             return "Questions"
         case .king:
@@ -64,23 +64,23 @@ enum Rank: String, CaseIterable {
         case .four:
             return "The last person to touch the floor drinks"
         case .five:
-            return "All the guys at the table drink."
+            return "All those who identify as a King drink."
         case .six:
-            return "All the girls at the table drink."
+            return "All those who identify as a Queen drink."
         case .seven:
-            return "If you draw this card, raise your hand above you head. Every other player must do so as well. The last person to do so drinks."
+            return "All players raise their hands above their heads. The last person to do so drinks."
         case .eight:
             return "Choose someone to be your mate. For the rest of the game, they drink when you drink."
         case .nine:
-            return "You say a word, then the person to your right has to say a word that rhymes. This continues until someone can't think of a word. That person takes a drink. You can't reuse words."
+            return "You say a word, then the room goes around coming up with a word that rhymes with said word until someone can't think of a word. The person who failed takes a drink. You can't reuse words."
         case .ten:
-            return "Come up with a category of things. The person to your right must name something that falls within the category. This continues until someone can't think of something. That person takes a drink."
+            return "Go around the room naming things belonging to a category until someone fails. The person who failed takes a drink."
         case .jack:
-            return "Play never have I ever"
+            return "Set a rule to be followed, e.g. stand on one foot when you drink. Anyone who breaks that rule must drink."
         case .queen:
-            return "Ask someone a question. That person then asks someone else a question. This continues until someone messes up or fails to ask a question. That person drinks. No question can be repeated."
+            return "Anybody who answers a question asked by you must drink."
         case .king:
-            return "Set a rule to be followed, e.g. stand on one foot when you drink, only speak in an accent, etc. When each of the first 3 Kings is drawn, the person who drew it puts some of their drink into the King's Cup in the center of the table. When the 4th King is drawn, the person who drew it must drink the entire King's Cup.)"
+            return "When each of the first 3 Kings is drawn, the person who drew it puts some of their drink into the King's Cup in the center of the table. When the 4th King is drawn, the person who drew it must drink the entire King's Cup.)"
         }
     }
 }
