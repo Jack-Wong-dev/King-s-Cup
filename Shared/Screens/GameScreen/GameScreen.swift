@@ -70,9 +70,13 @@ struct GameScreen: View {
         .disabled(showMenu)
         .blur(radius: showMenu ? 3 : 0)
         .overlay(
-            Group {
-                if gameState == .menu {
-                    MenuScreen()
+            GeometryReader { proxy in
+                ZStack(alignment: .center) {
+                    if gameState == .menu {
+                        MenuScreen(proxy: proxy)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .transition(.scale)
+                    }
                 }
             }
         )
@@ -80,12 +84,12 @@ struct GameScreen: View {
     }
 }
 
-struct GameScreen_Previews: PreviewProvider {
-    @StateObject static private var vm = UsedCardsViewModel()
-
-    static var previews: some View {
-        GameScreen()
-            .environmentObject(vm)
-//            .preferredColorScheme(.dark)
-    }
-}
+//struct GameScreen_Previews: PreviewProvider {
+//    @StateObject static private var vm = UsedCardsViewModel()
+//
+//    static var previews: some View {
+//        GameScreen()
+//            .environmentObject(vm)
+////            .preferredColorScheme(.dark)
+//    }
+//}
