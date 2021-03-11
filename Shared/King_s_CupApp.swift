@@ -9,14 +9,10 @@ import SwiftUI
 
 @main
 struct King_s_CupApp: App {
-    @StateObject private var usedCards = UsedCardsViewModel()
-    
     var body: some Scene {
         WindowGroup {
             GameScreen()
-//                FlipDemo()
                 .buttonStyle(SelectionButtonStyle())
-                .environmentObject(usedCards)
         }
     }
 }

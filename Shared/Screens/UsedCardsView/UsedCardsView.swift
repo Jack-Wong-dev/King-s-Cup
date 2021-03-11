@@ -3,28 +3,53 @@
 //  King's Cup (iOS)
 //
 //  Created by Jack Wong on 3/6/21.
-//
+
 
 import SwiftUI
 
 struct UsedCardsView: View {
-//    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-//    @Environment(\.verticalSizeClass) var verticalSizeClass
-    @EnvironmentObject var usedCardsVM: UsedCardsViewModel
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var brain: GameViewModel
     @State private var columns: [GridItem] = [.init(.adaptive(minimum: 100, maximum: 200))]
 
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns) {
-                ForEach(usedCardsVM.usedCards, id: \.self, content: CardImage.init)
+        VStack {
+            HStack {
+                Button(action: dismiss) {
+                    Text("Dismiss")
+                        .padding([.top, .horizontal])
+                }
+                .buttonStyle(DefaultButtonStyle())
+                .accentColor(Color(.systemPurple))
+                
+                Spacer(minLength: 0)
             }
-            .padding(.horizontal)
+            
+            if brain.usedCards.isEmpty {
+                Text("No used cards available")
+                    .fontWeight(.semibold)
+            }
+            
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(brain.usedCards, id: \.self) { card in
+                        Image(card.image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+                }
+                .padding(.horizontal)
+            }
         }
+    }
+    
+    private func dismiss() {
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
 struct CardsUsed_Previews: PreviewProvider {
-    @StateObject static private var vm = UsedCardsViewModel()
+    @StateObject static private var vm = GameViewModel()
     static var previews: some View {
         UsedCardsView()
             .environmentObject(vm)

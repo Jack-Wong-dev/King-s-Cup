@@ -8,32 +8,26 @@
 import SwiftUI
 
 struct PlayingCard: View {
-    @EnvironmentObject var usedCards: UsedCardsViewModel
     @EnvironmentObject var brain: GameViewModel
     @GestureState private var dragState = DragState.inactive
     @State private var translation: CGSize = .zero
     
     var card: Card
-    var proxy: GeometryProxy
-    
     private let dragAreaThreshold: CGFloat = 65.0
     
-    @Binding var flipped: Bool
-    @Binding var flip: Bool
-
-    var currentCard: Card? { brain.cards.last }
+    @State var flipped: Bool = false
+    @State var flip: Bool = false
     
     var body: some View {
         Image(flipped == true ?  card.image : "cardBack2" )
-            .resizable()
-            .aspectRatio(contentMode: .fit)
+            .cardModifier()
             .offset(
-                x: currentCard == card ? dragState.translation.width: 0,
-                y: currentCard == card ? dragState.translation.height: 0
+                x: dragState.translation.width,
+                y: dragState.translation.height
             )
-            .scaleEffect(dragState.isDragging && currentCard == card ? 0.85 : 1.0)
+            .scaleEffect(dragState.isDragging ? 0.85 : 1.0)
             .rotationEffect(
-                Angle(degrees: currentCard == card ? .init(dragState.translation.width / 24) : 0)
+                Angle(degrees: .init(dragState.translation.width / 24))
             )
             .animation(.interpolatingSpring(stiffness: 120, damping: 120))
             .gesture(
@@ -45,8 +39,7 @@ struct PlayingCard: View {
                     .onEnded(onEnded)
             )
             .modifier(FlipEffect(flipped: $flipped, angle: flip ? 180 : 0))
-            .onChange(of: currentCard, perform: flipCard)
-            .onAppear(perform: animateIfFirstCard)
+            .onAppear(perform: flipCard)
     }
   
     //MARK: - Methods
@@ -69,25 +62,14 @@ struct PlayingCard: View {
         }
     }
     
-    private func flipCard(_ newCard: Card?) {
-        if newCard == card {
-            withAnimation(.spring()){
-                flip = true
-            }
-        }
-    }
-    
-    private func animateIfFirstCard() {
-        if currentCard == card {
-            withAnimation(.spring()) {
-                flip = true
-            }
+    private func flipCard() {
+        withAnimation(.spring()) {
+            flip = true
         }
     }
     
     private func fetchNextCard() {
-        usedCards.addCard(card)
-        _ = brain.cards.popLast()
+        brain.proceedToNextCard()
     }
 }
 

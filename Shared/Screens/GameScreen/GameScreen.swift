@@ -8,106 +8,88 @@
 import SwiftUI
 
 struct GameScreen: View {
-    @EnvironmentObject var usedCards: UsedCardsViewModel
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @StateObject private var brain = GameViewModel()
     
-    @State private var showMenu = false
-
-    var currentCard: Card? { brain.cards.last }
-    
+    var gameState: GameState { brain.gameState }
+    var showMenu: Bool { gameState == .menu }
+        
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            Color.background.ignoresSafeArea()
-            
-            if brain.cards.isEmpty {
-                VStack(spacing: 20) {
-                    Text("No more cards.  Play again?")
-                   
-                    Button(action: restart) {
-                        Image(systemName: "play")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 24, height: 24)
-                    }
-                    .accentColor(.purple)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
-            
+        GeometryReader { proxy in
             ZStack {
-                ForEach(brain.cards.suffix(2)) { card in
-                    CardContentView(card: card)
+                Color.background.ignoresSafeArea()
+                
+                if gameState == .finished {
+                    ZStack {
+                        VStack {
+                            Text("No more cards. Play again?")
+                            
+                            Button {
+                                brain.restart()
+                            } label: {
+                                Image(systemName: "play")
+                            }
+                        }
+                    }
+                }
+                
+                if verticalSizeClass == .compact ||
+                    (horizontalSizeClass == .regular && verticalSizeClass == .regular && proxy.size.width > proxy.size.height)
+                    {
+                    HStack {
+                        CardPile()
+                            .frame(width: proxy.size.width / 2)
+                            .zIndex(10)
+                        
+                        VStack {
+                            CurrentCardDetail(titleSize: 30, descriptionSize: 24)
+                            
+                            Spacer(minLength: 0)
+                            
+                            GameHUD()
+                        }
+                        .frame(width: proxy.size.width / 2)
+                    }
+                } else {
+                    VStack {
+                        CardPile()
+                            .zIndex(10)
+                        
+                        VStack {
+                            CurrentCardDetail()
+                            
+                            Spacer(minLength: 0)
+                            
+                            GameHUD()
+                        }
+                    }
                 }
             }
-            .zIndex(1)
-            
-            HStack(alignment: .bottom) {
-                Text("Cards Remaining: \(brain.cards.count - 1 > 0 ?  brain.cards.count - 1 : 0 )")
-
-                Button(action: restart) {
-                    Image(systemName: "gearshape")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 36, height: 36)
-                }
-                .buttonStyle(DefaultButtonStyle())
-                .accentColor(.purple)
-            }
-            .padding()
         }
+        .disabled(showMenu)
+        .blur(radius: showMenu ? 50 : 0)
+        .overlay(
+            GeometryReader { proxy in
+                ZStack(alignment: .center) {
+                    if gameState == .menu {
+                        MenuScreen(proxy: proxy)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .transition(.scale)
+                    }
+                }
+            }
+        )
         .environmentObject(brain)
     }
-    
-    
-    private func restart() {
-        withAnimation {
-            brain.restart()
-            usedCards.restart()
-        }
-    }
 }
 
-struct GameScreen_Previews: PreviewProvider {
-    @StateObject static private var vm = UsedCardsViewModel()
-
-    static var previews: some View {
-        GameScreen()
-            .environmentObject(vm)
-//            .preferredColorScheme(.dark)
-    }
-}
-
-
-enum DragState {
-    case inactive
-    case pressing
-    case dragging(translation: CGSize)
-    
-    var translation: CGSize {
-        switch self {
-        case .inactive, .pressing:
-            return .zero
-        case .dragging(let translation):
-            return translation
-        }
-    }
-
-    var isDragging: Bool {
-        switch self {
-        case .dragging:
-            return true
-        case .pressing, .inactive:
-            return false
-        }
-    }
-
-    var isPressing: Bool {
-        switch self {
-        case .pressing, .dragging:
-            return true
-        case .inactive:
-            return false
-        }
-    }
-}
-
+//struct GameScreen_Previews: PreviewProvider {
+//    @StateObject static private var vm = UsedCardsViewModel()
+//
+//    static var previews: some View {
+//        GameScreen()
+//            .environmentObject(vm)
+////            .preferredColorScheme(.dark)
+//    }
+//}

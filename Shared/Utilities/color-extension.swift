@@ -10,5 +10,6 @@ import SwiftUI
 extension Color {
     static let background = Color("background")
     static let shadow = Color("shadow")
+    static let lighting = Color("lighting")
 }
 
