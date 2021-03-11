@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameScreen: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+//    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @EnvironmentObject var usedCards: UsedCardsViewModel
     @StateObject private var brain = GameViewModel()
     
@@ -22,42 +22,31 @@ struct GameScreen: View {
                 
                 if verticalSizeClass == .compact {
                     HStack {
-                        ZStack {
-                            if brain.cards.count > 1 {
-                                CardBackView()
-                            }
-                                                
-                            ForEach(brain.cards.suffix(1)) { card in
-                                PlayingCard(card: card)
-                            }
-                        }
-                        .frame(width: proxy.size.width / 2)
-                        .zIndex(10)
+                        CardPile()
+                            .frame(width: proxy.size.width / 2)
+                            .zIndex(10)
                         
                         VStack {
                             Spacer(minLength: 0)
+                            
                             CurrentCardDetail()
+                            
                             Spacer(minLength: 0)
+                            
                             GameHUD()
                         }
                         .frame(width: proxy.size.width / 2)
                     }
                 } else {
                     VStack {
-                        ZStack {
-                            if brain.cards.count > 1 {
-                                CardBackView()
-                            }
-                                                
-                            ForEach(brain.cards.suffix(1)) { card in
-                                PlayingCard(card: card)
-                            }
-                        }
-                        .zIndex(10)
+                        CardPile()
+                            .zIndex(10)
                         
                         VStack {
                             CurrentCardDetail()
+                            
                             Spacer(minLength: 0)
+                            
                             GameHUD()
                         }
                     }

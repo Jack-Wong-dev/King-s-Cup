@@ -14,7 +14,8 @@ extension Image {
         self
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .shadow(color: Color.shadow.opacity(0.5), radius: 10, x: 0, y: 5)
+            .shadow(color: .shadow, radius: 15, x: 15, y: 15)  //Bottom trailing shadow.
+            .shadow(color: .lighting, radius: 15, x: -15, y: -15) //Top leading shadow.
             .padding()
     }
 }
