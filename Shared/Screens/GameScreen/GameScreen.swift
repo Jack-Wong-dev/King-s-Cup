@@ -25,6 +25,7 @@ struct GameScreen: View {
                     ZStack {
                         VStack {
                             Text("No more cards. Play again?")
+                            
                             Button {
                                 brain.restart()
                             } label: {
@@ -68,11 +69,12 @@ struct GameScreen: View {
             }
         }
         .disabled(showMenu)
-        .blur(radius: showMenu ? 3 : 0)
+        .blur(radius: showMenu ? 50 : 0)
         .overlay(
             GeometryReader { proxy in
                 ZStack(alignment: .center) {
                     if gameState == .menu {
+                        
                         MenuScreen(proxy: proxy)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .transition(.scale)

@@ -12,7 +12,6 @@ struct MenuScreen: View {
     var proxy: GeometryProxy
     
     var body: some View {
-//        GeometryReader { proxy in
             VStack {
                 Button(action: resume) {
                     Text("Resume")
@@ -43,11 +42,6 @@ struct MenuScreen: View {
                 }
             }
             .padding()
-//            .frame(
-//                width: proxy.frame(in: .global).width,
-//                height: proxy.frame(in: .global).height
-//            )
-//        }
     }
     
     private func resume() {
