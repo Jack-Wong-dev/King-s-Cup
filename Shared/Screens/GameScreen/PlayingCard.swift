@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PlayingCard: View {
-    @EnvironmentObject var usedCards: UsedCardsViewModel
     @EnvironmentObject var brain: GameViewModel
     @GestureState private var dragState = DragState.inactive
     @State private var translation: CGSize = .zero
@@ -70,8 +69,7 @@ struct PlayingCard: View {
     }
     
     private func fetchNextCard() {
-        usedCards.addCard(card)
-        _ = brain.cards.popLast()
+        brain.proceedToNextCard()
     }
 }
 

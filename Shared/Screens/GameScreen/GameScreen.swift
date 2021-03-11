@@ -10,7 +10,6 @@ import SwiftUI
 struct GameScreen: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    @EnvironmentObject var usedCards: UsedCardsViewModel
     @StateObject private var brain = GameViewModel()
     
     var gameState: GameState { brain.gameState }
@@ -74,7 +73,6 @@ struct GameScreen: View {
             GeometryReader { proxy in
                 ZStack(alignment: .center) {
                     if gameState == .menu {
-                        
                         MenuScreen(proxy: proxy)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .transition(.scale)

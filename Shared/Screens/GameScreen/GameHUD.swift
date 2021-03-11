@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GameHUD: View {
-    @EnvironmentObject var usedCards: UsedCardsViewModel
     @EnvironmentObject var brain: GameViewModel
     
     var body: some View {
@@ -23,13 +22,14 @@ struct GameHUD: View {
             Spacer(minLength: 0)
 
             Button(action: showMenu) {
-                Image(systemName: "gearshape")
+                Image(systemName: "gearshape.fill")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 36, height: 36)
+                    .shadow(color: Color(.systemPurple).opacity(0.5), radius: 5, x: 0.0, y: 2.0)
             }
             .buttonStyle(DefaultButtonStyle())
-            .accentColor(.purple)
+            .accentColor(Color(.systemPurple))
         }
         .padding(.horizontal)
     }
@@ -37,13 +37,6 @@ struct GameHUD: View {
     private func showMenu() {
         withAnimation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 0)) {
             brain.gameState = .menu
-        }
-    }
-    
-    private func restart() {
-        withAnimation {
-            brain.restart()
-            usedCards.restart()
         }
     }
 }

@@ -17,6 +17,7 @@ enum GameState {
 
 class GameViewModel: ObservableObject {
     @Published var cards = [Card]()
+    @Published private(set) var usedCards = [Card]()
     @Published var gameState: GameState = .start
     @Published private(set) var kingCounter = 0
     
@@ -48,6 +49,7 @@ class GameViewModel: ObservableObject {
     private func resetGameBoard() {
         kingCounter = 0
         cards.removeAll()
+        usedCards.removeAll()
         var temp = [Card]()
         
         for suit in Suit.allCases {
@@ -57,5 +59,11 @@ class GameViewModel: ObservableObject {
         }
         
         cards = temp.shuffled()
+    }
+
+    func proceedToNextCard() {
+        if let card = cards.popLast() {
+            usedCards.append(card)
+        }
     }
 }
