@@ -21,9 +21,7 @@ struct PlayingCard: View {
     
     var body: some View {
         Image(flipped == true ?  card.image : "cardBack2" )
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .shadow(color: Color.shadow.opacity(0.5), radius: 10, x: 0, y: 5)
+            .cardModifier()
             .offset(
                 x: dragState.translation.width,
                 y: dragState.translation.height

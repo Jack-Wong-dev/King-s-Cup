@@ -24,16 +24,11 @@ struct GameScreen: View {
                     HStack {
                         ZStack {
                             if brain.cards.count > 1 {
-                                Image.cardBack
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .shadow(color: Color.shadow.opacity(0.5), radius: 10, x: 0, y: 5)
-                                    .padding()
+                                CardBackView()
                             }
                                                 
                             ForEach(brain.cards.suffix(1)) { card in
                                 PlayingCard(card: card)
-                                    .padding()
                             }
                         }
                         .frame(width: proxy.size.width / 2)
@@ -51,16 +46,11 @@ struct GameScreen: View {
                     VStack {
                         ZStack {
                             if brain.cards.count > 1 {
-                                Image.cardBack
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .shadow(color: Color.shadow.opacity(0.5), radius: 10, x: 0, y: 5)
-                                    .padding()
+                                CardBackView()
                             }
                                                 
                             ForEach(brain.cards.suffix(1)) { card in
                                 PlayingCard(card: card)
-                                    .padding()
                             }
                         }
                         .zIndex(10)

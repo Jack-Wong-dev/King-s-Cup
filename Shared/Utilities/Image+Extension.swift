@@ -9,4 +9,12 @@ import SwiftUI
 
 extension Image {
     static let cardBack = Image("cardBack2")
+    
+    func cardModifier() -> some View {
+        self
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .shadow(color: Color.shadow.opacity(0.5), radius: 10, x: 0, y: 5)
+            .padding()
+    }
 }
