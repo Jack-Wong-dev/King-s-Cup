@@ -20,6 +20,7 @@ struct CardPile: View {
                 PlayingCard(card: card)
             }
         }
+        .padding()
     }
 }
 

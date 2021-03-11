@@ -16,6 +16,5 @@ extension Image {
             .aspectRatio(contentMode: .fit)
             .shadow(color: .shadow, radius: 15, x: 15, y: 15)  //Bottom trailing shadow.
             .shadow(color: .lighting, radius: 15, x: -15, y: -15) //Top leading shadow.
-            .padding()
     }
 }

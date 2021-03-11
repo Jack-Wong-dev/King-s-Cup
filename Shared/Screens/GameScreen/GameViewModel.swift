@@ -8,29 +8,43 @@
 import Foundation
 import Combine
 
+enum GameState {
+    case start
+    case finished
+}
+
 class GameViewModel: ObservableObject {
     @Published var cards = [Card]()
+    @Published var gameState: GameState = .start
     @Published private(set) var kingCounter = 0
     
     var cancellable: AnyCancellable?
+    var gameToken: AnyCancellable?
     
     init() {
-        restart()
+        gameToken = $gameState
+            .sink(receiveValue: { [unowned self] state in
+                if case .start = state {
+                    self.resetGameBoard()
+                }
+            })
         
         cancellable = $cards
             .sink(receiveValue: { [unowned self] card in
                 if card.last?.rank == Rank.king {
                     self.kingCounter += 1
+                } else if card.isEmpty {
+                    gameState = .finished
                 }
             })
     }
     
     func restart() {
-        kingCounter = 0
-        shuffle()
+        gameState = .start
     }
     
-    private func shuffle() {
+    private func resetGameBoard() {
+        kingCounter = 0
         cards.removeAll()
         var temp = [Card]()
         
@@ -42,9 +56,4 @@ class GameViewModel: ObservableObject {
         
         cards = temp.shuffled()
     }
-}
-
-enum GameState {
-    case ongoing
-    case restart
 }

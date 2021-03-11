@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameScreen: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
-//    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @EnvironmentObject var usedCards: UsedCardsViewModel
     @StateObject private var brain = GameViewModel()
     
@@ -20,15 +20,28 @@ struct GameScreen: View {
             ZStack {
                 Color.background.ignoresSafeArea()
                 
-                if verticalSizeClass == .compact {
+                if brain.cards.isEmpty {
+                    ZStack {
+                        VStack {
+                            Text("No more cards. Play again?")
+                            Button {
+                                brain.restart()
+                            } label: {
+                                Image(systemName: "play")
+                            }
+                        }
+                    }
+                }
+                
+                if verticalSizeClass == .compact ||
+                    (horizontalSizeClass == .regular && verticalSizeClass == .regular && proxy.size.width > proxy.size.height)
+                    {
                     HStack {
                         CardPile()
                             .frame(width: proxy.size.width / 2)
                             .zIndex(10)
                         
-                        VStack {
-                            Spacer(minLength: 0)
-                            
+                        VStack {                            
                             CurrentCardDetail()
                             
                             Spacer(minLength: 0)
