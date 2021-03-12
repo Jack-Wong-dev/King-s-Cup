@@ -14,7 +14,6 @@
 		0A5C6A6225F6E3190017AF63 /* SelectionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A6125F6E3190017AF63 /* SelectionButtonStyle.swift */; };
 		0AB3C51725F6F681004C3EE2 /* FlipEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3C51625F6F681004C3EE2 /* FlipEffect.swift */; };
 		0AB3C54425F73068004C3EE2 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3C54325F73068004C3EE2 /* Image+Extension.swift */; };
-		0AB3C54925F84A51004C3EE2 /* PreferencesDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3C54825F84A51004C3EE2 /* PreferencesDemo.swift */; };
 		0AD6F53E25F342920078B6FF /* King_s_CupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F52B25F342870078B6FF /* King_s_CupApp.swift */; };
 		0AD6F53F25F342920078B6FF /* King_s_CupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F52B25F342870078B6FF /* King_s_CupApp.swift */; };
 		0AD6F54025F342920078B6FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F52C25F342870078B6FF /* ContentView.swift */; };
@@ -30,7 +29,6 @@
 		0AEBBE9025F34C5C0035CB24 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBBE8F25F34C5C0035CB24 /* Suit.swift */; };
 		0AEBBE9425F34C740035CB24 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBBE9325F34C740035CB24 /* Card.swift */; };
 		0AEBBE9E25F34F290035CB24 /* UsedCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBBE9D25F34F290035CB24 /* UsedCardsView.swift */; };
-		0AEBBEA325F3532B0035CB24 /* UsedCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBBEA225F3532B0035CB24 /* UsedCardsViewModel.swift */; };
 		0AEBBEB225F362490035CB24 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBBEB125F362490035CB24 /* GameScreen.swift */; };
 		0AEBBEB625F3626B0035CB24 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBBEB525F3626B0035CB24 /* GameViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +41,6 @@
 		0A5C6A6125F6E3190017AF63 /* SelectionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButtonStyle.swift; sourceTree = "<group>"; };
 		0AB3C51625F6F681004C3EE2 /* FlipEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipEffect.swift; sourceTree = "<group>"; };
 		0AB3C54325F73068004C3EE2 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
-		0AB3C54825F84A51004C3EE2 /* PreferencesDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesDemo.swift; sourceTree = "<group>"; };
 		0AD6F52B25F342870078B6FF /* King_s_CupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = King_s_CupApp.swift; sourceTree = "<group>"; };
 		0AD6F52C25F342870078B6FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0AD6F52D25F342920078B6FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,7 +58,6 @@
 		0AEBBE8F25F34C5C0035CB24 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
 		0AEBBE9325F34C740035CB24 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		0AEBBE9D25F34F290035CB24 /* UsedCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedCardsView.swift; sourceTree = "<group>"; };
-		0AEBBEA225F3532B0035CB24 /* UsedCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedCardsViewModel.swift; sourceTree = "<group>"; };
 		0AEBBEB125F362490035CB24 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
 		0AEBBEB525F3626B0035CB24 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,12 +80,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A06C64F25FC2F8A00826A08 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				0AE8186C25F985A800C78989 /* GameHUD.swift */,
+				0AE8188025F9974200C78989 /* CardBackView.swift */,
+				0AE8188425F998A500C78989 /* CardPile.swift */,
+				0A5C6A5225F602480017AF63 /* PlayingCard.swift */,
+				0AE8187425F9915100C78989 /* CurrentCardDetail.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		0A5C6A3F25F5731F0017AF63 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				0A5C6A4025F573340017AF63 /* color-extension.swift */,
 				0A5C6A6125F6E3190017AF63 /* SelectionButtonStyle.swift */,
 				0AB3C54325F73068004C3EE2 /* Image+Extension.swift */,
+				0AB3C51625F6F681004C3EE2 /* FlipEffect.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -110,22 +119,6 @@
 			path = WelcomeScreen;
 			sourceTree = "<group>";
 		};
-		0AB3C51525F6F671004C3EE2 /* FlipEffect */ = {
-			isa = PBXGroup;
-			children = (
-				0AB3C51625F6F681004C3EE2 /* FlipEffect.swift */,
-			);
-			path = FlipEffect;
-			sourceTree = "<group>";
-		};
-		0AB3C54725F84A0B004C3EE2 /* ViewPreferenceDemo */ = {
-			isa = PBXGroup;
-			children = (
-				0AB3C54825F84A51004C3EE2 /* PreferencesDemo.swift */,
-			);
-			path = ViewPreferenceDemo;
-			sourceTree = "<group>";
-		};
 		0AD6F52525F342870078B6FF = {
 			isa = PBXGroup;
 			children = (
@@ -139,11 +132,8 @@
 		0AD6F52A25F342870078B6FF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				0AB3C54725F84A0B004C3EE2 /* ViewPreferenceDemo */,
-				0AB3C51525F6F671004C3EE2 /* FlipEffect */,
 				0A5C6A3F25F5731F0017AF63 /* Utilities */,
 				0AEBBE9C25F34F150035CB24 /* Screens */,
-				0AEBBE9725F34C960035CB24 /* Views */,
 				0AEBBE8A25F34C150035CB24 /* Models */,
 				0AD6F52B25F342870078B6FF /* King_s_CupApp.swift */,
 				0AD6F52C25F342870078B6FF /* ContentView.swift */,
@@ -189,13 +179,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		0AEBBE9725F34C960035CB24 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		0AEBBE9C25F34F150035CB24 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				0AEBBE9D25F34F290035CB24 /* UsedCardsView.swift */,
-				0AEBBEA225F3532B0035CB24 /* UsedCardsViewModel.swift */,
 			);
 			path = UsedCardsView;
 			sourceTree = "<group>";
@@ -219,13 +201,9 @@
 		0AEBBEB025F362360035CB24 /* GameScreen */ = {
 			isa = PBXGroup;
 			children = (
-				0A5C6A5225F602480017AF63 /* PlayingCard.swift */,
-				0AE8187425F9915100C78989 /* CurrentCardDetail.swift */,
+				0A06C64F25FC2F8A00826A08 /* SubViews */,
 				0AEBBEB125F362490035CB24 /* GameScreen.swift */,
 				0AEBBEB525F3626B0035CB24 /* GameViewModel.swift */,
-				0AE8186C25F985A800C78989 /* GameHUD.swift */,
-				0AE8188025F9974200C78989 /* CardBackView.swift */,
-				0AE8188425F998A500C78989 /* CardPile.swift */,
 			);
 			path = GameScreen;
 			sourceTree = "<group>";
@@ -340,11 +318,9 @@
 				0AE8187525F9915100C78989 /* CurrentCardDetail.swift in Sources */,
 				0AE8188125F9974200C78989 /* CardBackView.swift in Sources */,
 				0A5C6A5325F602480017AF63 /* PlayingCard.swift in Sources */,
-				0AB3C54925F84A51004C3EE2 /* PreferencesDemo.swift in Sources */,
 				0A5C6A5E25F6E0630017AF63 /* WelcomeScreen.swift in Sources */,
 				0AB3C54425F73068004C3EE2 /* Image+Extension.swift in Sources */,
 				0AEBBE9E25F34F290035CB24 /* UsedCardsView.swift in Sources */,
-				0AEBBEA325F3532B0035CB24 /* UsedCardsViewModel.swift in Sources */,
 				0AE8186D25F985A800C78989 /* GameHUD.swift in Sources */,
 				0AE8187125F98C1400C78989 /* DragState.swift in Sources */,
 				0AD6F53E25F342920078B6FF /* King_s_CupApp.swift in Sources */,
