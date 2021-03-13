@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A06C65425FC33B200826A08 /* HowToPlayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A06C65325FC33B200826A08 /* HowToPlayScreen.swift */; };
 		0A2C145E25FC91B900DE9746 /* AnimatedBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C145D25FC91B900DE9746 /* AnimatedBackground.swift */; };
+		0A2C146225FCB52700DE9746 /* UserInterfaceSizeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C146125FCB52700DE9746 /* UserInterfaceSizeClass.swift */; };
 		0A5C6A4125F573340017AF63 /* color-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A4025F573340017AF63 /* color-extension.swift */; };
 		0A5C6A5325F602480017AF63 /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A5225F602480017AF63 /* PlayingCard.swift */; };
 		0A5C6A5B25F6E0170017AF63 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A5A25F6E0170017AF63 /* MenuScreen.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		0A06C65325FC33B200826A08 /* HowToPlayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayScreen.swift; sourceTree = "<group>"; };
 		0A2C145D25FC91B900DE9746 /* AnimatedBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedBackground.swift; sourceTree = "<group>"; };
+		0A2C146125FCB52700DE9746 /* UserInterfaceSizeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInterfaceSizeClass.swift; sourceTree = "<group>"; };
 		0A5C6A4025F573340017AF63 /* color-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "color-extension.swift"; sourceTree = "<group>"; };
 		0A5C6A5225F602480017AF63 /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
 		0A5C6A5A25F6E0170017AF63 /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				0A5C6A6125F6E3190017AF63 /* SelectionButtonStyle.swift */,
 				0AB3C54325F73068004C3EE2 /* Image+Extension.swift */,
 				0AB3C51625F6F681004C3EE2 /* FlipEffect.swift */,
+				0A2C146125FCB52700DE9746 /* UserInterfaceSizeClass.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				0A5C6A5325F602480017AF63 /* PlayingCard.swift in Sources */,
 				0A5C6A5E25F6E0630017AF63 /* WelcomeScreen.swift in Sources */,
 				0A06C65425FC33B200826A08 /* HowToPlayScreen.swift in Sources */,
+				0A2C146225FCB52700DE9746 /* UserInterfaceSizeClass.swift in Sources */,
 				0AB3C54425F73068004C3EE2 /* Image+Extension.swift in Sources */,
 				0AEBBE9E25F34F290035CB24 /* UsedCardsView.swift in Sources */,
 				0AE8186D25F985A800C78989 /* GameHUD.swift in Sources */,
