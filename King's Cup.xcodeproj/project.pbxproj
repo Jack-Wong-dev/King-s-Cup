@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A06C65425FC33B200826A08 /* HowToPlayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A06C65325FC33B200826A08 /* HowToPlayScreen.swift */; };
 		0A5C6A4125F573340017AF63 /* color-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A4025F573340017AF63 /* color-extension.swift */; };
 		0A5C6A5325F602480017AF63 /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A5225F602480017AF63 /* PlayingCard.swift */; };
 		0A5C6A5B25F6E0170017AF63 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A5A25F6E0170017AF63 /* MenuScreen.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A06C65325FC33B200826A08 /* HowToPlayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayScreen.swift; sourceTree = "<group>"; };
 		0A5C6A4025F573340017AF63 /* color-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "color-extension.swift"; sourceTree = "<group>"; };
 		0A5C6A5225F602480017AF63 /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
 		0A5C6A5A25F6E0170017AF63 /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 				0AE8187425F9915100C78989 /* CurrentCardDetail.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		0A06C65225FC33A500826A08 /* HowToPlay */ = {
+			isa = PBXGroup;
+			children = (
+				0A06C65325FC33B200826A08 /* HowToPlayScreen.swift */,
+			);
+			path = HowToPlay;
 			sourceTree = "<group>";
 		};
 		0A5C6A3F25F5731F0017AF63 /* Utilities */ = {
@@ -182,6 +192,7 @@
 		0AEBBE9C25F34F150035CB24 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				0A06C65225FC33A500826A08 /* HowToPlay */,
 				0A5C6A5C25F6E0560017AF63 /* WelcomeScreen */,
 				0A5C6A4525F5A5BC0017AF63 /* MenuScreen */,
 				0AEBBEB025F362360035CB24 /* GameScreen */,
@@ -319,6 +330,7 @@
 				0AE8188125F9974200C78989 /* CardBackView.swift in Sources */,
 				0A5C6A5325F602480017AF63 /* PlayingCard.swift in Sources */,
 				0A5C6A5E25F6E0630017AF63 /* WelcomeScreen.swift in Sources */,
+				0A06C65425FC33B200826A08 /* HowToPlayScreen.swift in Sources */,
 				0AB3C54425F73068004C3EE2 /* Image+Extension.swift in Sources */,
 				0AEBBE9E25F34F290035CB24 /* UsedCardsView.swift in Sources */,
 				0AE8186D25F985A800C78989 /* GameHUD.swift in Sources */,

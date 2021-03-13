@@ -12,7 +12,7 @@ struct MenuScreen: View {
         var id: Int { self.rawValue }
         
         case showUsedCards
-        case showTutorial
+        case showGuide
     }
     
     @EnvironmentObject var brain: GameViewModel
@@ -55,8 +55,8 @@ struct MenuScreen: View {
             switch help {
             case .showUsedCards:
                 UsedCardsView()
-            case .showTutorial:
-                Text("Tutorials")
+            case .showGuide:
+                HowToPlayScreen()
             }
         }
     }
@@ -79,7 +79,9 @@ struct MenuScreen: View {
     }
     
     private func showTutorial() {
-        
+        withAnimation {
+            helpAction = .showGuide
+        }
     }
     
     private func exit() {

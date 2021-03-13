@@ -13,32 +13,36 @@ struct UsedCardsView: View {
     @State private var columns: [GridItem] = [.init(.adaptive(minimum: 100, maximum: 200))]
 
     var body: some View {
-        VStack {
-            HStack {
-                Button(action: dismiss) {
-                    Text("Dismiss")
-                        .padding([.top, .horizontal])
-                }
-                .buttonStyle(DefaultButtonStyle())
-                .accentColor(Color(.systemPurple))
-                
-                Spacer(minLength: 0)
-            }
-            
-            if brain.usedCards.isEmpty {
-                Text("No used cards available")
-                    .fontWeight(.semibold)
-            }
-            
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(brain.usedCards, id: \.self) { card in
-                        Image(card.image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+        ZStack {
+            Color.background.ignoresSafeArea()
+
+            VStack {
+                HStack {
+                    Button(action: dismiss) {
+                        Text("Dismiss")
+                            .padding([.top, .horizontal])
                     }
+                    .buttonStyle(DefaultButtonStyle())
+                    .accentColor(Color(.systemPurple))
+                    
+                    Spacer(minLength: 0)
                 }
-                .padding(.horizontal)
+                
+                if brain.usedCards.isEmpty {
+                    Text("No used cards available")
+                        .fontWeight(.semibold)
+                }
+                
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(brain.usedCards, id: \.self) { card in
+                            Image(card.image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
             }
         }
     }
