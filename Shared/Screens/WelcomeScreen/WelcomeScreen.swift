@@ -8,7 +8,18 @@
 import SwiftUI
 
 struct WelcomeScreen: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     @EnvironmentObject var appContainer: AppStateContainer
+    
+    var scale: CGFloat {
+        switch (horizontalSizeClass, verticalSizeClass) {
+        case (.regular, .regular):
+            return 0.3
+        default:
+            return 0.5
+        }
+    }
     
     var body: some View {
         GeometryReader { proxy in
@@ -29,13 +40,13 @@ struct WelcomeScreen: View {
                         Button(action: play) {
                             Text("Play")
                                 .fontWeight(.semibold)
-                                .frame(maxWidth: proxy.size.width * 0.5)
+                                .frame(maxWidth: proxy.size.width * scale)
                         }
                         
                         Button(action: showTutorial) {
                             Text("How to play")
                                 .fontWeight(.semibold)
-                                .frame(maxWidth: proxy.size.width * 0.5)
+                                .frame(maxWidth: proxy.size.width * scale)
                         }
                         
                         Button(action: openOptionsMenu) {
@@ -47,7 +58,7 @@ struct WelcomeScreen: View {
                                     .fontWeight(.semibold)
                                     .foregroundColor(.red)
                             }
-                            .frame(maxWidth: proxy.size.width * 0.5)
+                            .frame(maxWidth: proxy.size.width * scale)
                         }
                         .disabled(true)
                     }
