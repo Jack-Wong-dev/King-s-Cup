@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct MenuScreen: View {
-    enum HelpAction: Int, Identifiable {
-        var id: Int { self.rawValue }
-        
-        case showUsedCards
-        case showGuide
-    }
+enum HelpAction: Int, Identifiable {
+    var id: Int { self.rawValue }
     
+    case showUsedCards
+    case showGuide
+}
+
+struct MenuScreen: View {
+    @EnvironmentObject var appStateContainer: AppStateContainer
     @EnvironmentObject var brain: GameViewModel
     @State private var helpAction: HelpAction?
     
@@ -47,6 +48,7 @@ struct MenuScreen: View {
                     .frame(maxWidth: proxy.size.width * 0.5)
             }
         }
+        .font(.system(Font.TextStyle.body, design: .rounded))
         .padding()
         .sheet(item: $helpAction) { help in
             switch help {
@@ -82,7 +84,9 @@ struct MenuScreen: View {
     }
     
     private func exit() {
-        
+//        withAnimation {
+            appStateContainer.destinationState.destination = .welcome
+//        }
     }
 }
 

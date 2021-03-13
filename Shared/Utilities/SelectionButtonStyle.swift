@@ -15,7 +15,7 @@ struct SelectionButtonStyle: ButtonStyle {
             .background(
                 Capsule()
                     .foregroundColor(Color(.systemBackground))
-                    .shadow(color: Color.shadow.opacity(0.16), radius: 12, x: 0, y: 5)
+                    .shadow(color: Color.shadow.opacity(5), radius: 12, x: 0, y: 5)
             )
             .scaleEffect(configuration.isPressed ? 0.7 : 1)
             .animation(.default)

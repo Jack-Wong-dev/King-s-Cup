@@ -9,10 +9,14 @@ import SwiftUI
 
 @main
 struct King_s_CupApp: App {
+    @StateObject var appStateContainer = AppStateContainer()
+    
     var body: some Scene {
         WindowGroup {
-            GameScreen()
+            MotherView()
                 .buttonStyle(SelectionButtonStyle())
+                .environmentObject(appStateContainer)
+                .environmentObject(appStateContainer.destinationState)
         }
     }
 }

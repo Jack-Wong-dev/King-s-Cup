@@ -9,7 +9,12 @@ import SwiftUI
 
 struct HowToPlayScreen: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var appStateContainer: AppStateContainer
     
+    var willGoBackToWelcome: Bool {
+        appStateContainer.destinationState.destination == .guide
+    }
+        
     var body: some View {
         VStack(alignment: .leading) {
             Button(action: dismiss) {
@@ -21,20 +26,20 @@ struct HowToPlayScreen: View {
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    VStack(alignment: .leading){
+                    VStack(alignment: .leading, spacing: 4){
                         Text("Intro")
                             .fontWeight(.bold)
                         
                         Text("King’s cup is a classic drinking game using a deck of cards and a cup (referred to as the king’s cup).")
                     }
                     
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 4) {
                         Text("Setup")
                             .fontWeight(.bold)
                         Text("All players should gather around in a circle, with a large cup at the center.  Playing cards are spread out around the cup.  However, if you are using this app, there is no need for this step.")
                     }
                     
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 4) {
                         Text("Gameplay")
                             .fontWeight(.bold)
                         
@@ -47,7 +52,13 @@ struct HowToPlayScreen: View {
     }
     
     private func dismiss() {
-        presentationMode.wrappedValue.dismiss()
+        if willGoBackToWelcome {
+            withAnimation {
+                appStateContainer.destinationState.destination = .welcome
+            }
+        } else {
+            presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 
