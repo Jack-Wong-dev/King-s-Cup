@@ -15,37 +15,48 @@ enum HelpAction: Int, Identifiable {
 }
 
 struct MenuScreen: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     @EnvironmentObject var appStateContainer: AppStateContainer
     @EnvironmentObject var brain: GameViewModel
     @State private var helpAction: HelpAction?
     
     var proxy: GeometryProxy
     
+    var scale: CGFloat {
+        switch (horizontalSizeClass, verticalSizeClass) {
+        case (.regular, .regular):
+            return 0.3
+        default:
+            return 0.5
+        }
+    }
+    
     var body: some View {
         VStack {
             Button(action: resume) {
                 Text("Resume")
-                    .frame(maxWidth: proxy.size.width * 0.5)
+                    .frame(maxWidth: proxy.size.width * scale)
             }
             
             Button(action: restart) {
                 Text("Restart")
-                    .frame(maxWidth: proxy.size.width * 0.5)
+                    .frame(maxWidth: proxy.size.width * scale)
             }
             
             Button(action: showUsedCards) {
                 Text("Cards Used")
-                    .frame(maxWidth: proxy.size.width * 0.5)
+                    .frame(maxWidth: proxy.size.width * scale)
             }
             
             Button(action: showTutorial) {
                 Text("How to play")
-                    .frame(maxWidth: proxy.size.width * 0.5)
+                    .frame(maxWidth: proxy.size.width * scale)
             }
             
             Button(action: exit) {
                 Text("Exit Game")
-                    .frame(maxWidth: proxy.size.width * 0.5)
+                    .frame(maxWidth: proxy.size.width * scale)
             }
         }
         .font(.system(Font.TextStyle.body, design: .rounded))
