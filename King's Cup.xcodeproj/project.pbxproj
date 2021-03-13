@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A06C65425FC33B200826A08 /* HowToPlayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A06C65325FC33B200826A08 /* HowToPlayScreen.swift */; };
+		0A2C145E25FC91B900DE9746 /* AnimatedBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C145D25FC91B900DE9746 /* AnimatedBackground.swift */; };
 		0A5C6A4125F573340017AF63 /* color-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A4025F573340017AF63 /* color-extension.swift */; };
 		0A5C6A5325F602480017AF63 /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A5225F602480017AF63 /* PlayingCard.swift */; };
 		0A5C6A5B25F6E0170017AF63 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A5A25F6E0170017AF63 /* MenuScreen.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		0A06C65325FC33B200826A08 /* HowToPlayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayScreen.swift; sourceTree = "<group>"; };
+		0A2C145D25FC91B900DE9746 /* AnimatedBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedBackground.swift; sourceTree = "<group>"; };
 		0A5C6A4025F573340017AF63 /* color-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "color-extension.swift"; sourceTree = "<group>"; };
 		0A5C6A5225F602480017AF63 /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
 		0A5C6A5A25F6E0170017AF63 /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 			path = HowToPlay;
 			sourceTree = "<group>";
 		};
+		0A2C145C25FC918900DE9746 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0A2C145D25FC91B900DE9746 /* AnimatedBackground.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0A5C6A3F25F5731F0017AF63 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +153,7 @@
 		0AD6F52A25F342870078B6FF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0A2C145C25FC918900DE9746 /* Views */,
 				0AFEB69125FC79AF002BF59A /* ViewModel */,
 				0A5C6A3F25F5731F0017AF63 /* Utilities */,
 				0AEBBE9C25F34F150035CB24 /* Screens */,
@@ -337,6 +348,7 @@
 				0A5C6A4125F573340017AF63 /* color-extension.swift in Sources */,
 				0AEBBEB225F362490035CB24 /* GameScreen.swift in Sources */,
 				0AE8188525F998A500C78989 /* CardPile.swift in Sources */,
+				0A2C145E25FC91B900DE9746 /* AnimatedBackground.swift in Sources */,
 				0AEBBE8C25F34C1F0035CB24 /* Rank.swift in Sources */,
 				0AFEB68625FC7967002BF59A /* MotherView.swift in Sources */,
 				0A5C6A6225F6E3190017AF63 /* SelectionButtonStyle.swift in Sources */,
