@@ -33,21 +33,18 @@ struct MenuScreen: View {
             }
             
             Button(action: showUsedCards) {
-                Text("Cards used so far")
+                Text("Cards Used")
                     .frame(maxWidth: proxy.size.width * 0.5)
-                
             }
             
             Button(action: showTutorial) {
                 Text("How to play")
                     .frame(maxWidth: proxy.size.width * 0.5)
-                
             }
             
             Button(action: exit) {
-                Text("Exit")
+                Text("Exit Game")
                     .frame(maxWidth: proxy.size.width * 0.5)
-                
             }
         }
         .padding()

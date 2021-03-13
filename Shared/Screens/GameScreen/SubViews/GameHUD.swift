@@ -20,7 +20,7 @@ struct GameHUD: View {
             .foregroundColor(.purple)
             
             Spacer(minLength: 0)
-
+            
             Button(action: showMenu) {
                 Image(systemName: "gearshape.fill")
                     .resizable()

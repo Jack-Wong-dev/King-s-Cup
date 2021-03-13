@@ -38,7 +38,7 @@ struct HowToPlayScreen: View {
                         Text("Gameplay")
                             .fontWeight(.bold)
                         
-                        Text("One person draws a card, shows it to the rest of the players, then follows the rule associated with that particular card.  When that person is done, the card gets discarded and the next player picks the next card.  This is repeated until there are no more cards, or the last king card is drawn. \n\nIf you are using this app, the first card will be automatically drawn when the game is initiated.  Swiping the card away will discard said card and reveal the next card.  You can see every card used so far by tapping on settings and selecting ‘Used Cards’.")
+                        Text("One person draws a card, shows it to the rest of the players, then follows the rule associated with that particular card.  When that person is done, the card gets discarded and the next player picks the next card.  This is repeated until there are no more cards, or the last king card is drawn. \n\nIf you are using this app, the first card will be automatically drawn when the game is initiated.  Swiping the card away will discard said card and reveal the next card.")
                     }
                 }
                 .padding(.horizontal)
