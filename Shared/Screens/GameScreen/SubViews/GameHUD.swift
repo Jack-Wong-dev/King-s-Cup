@@ -13,7 +13,7 @@ struct GameHUD: View {
     var body: some View {
         HStack(alignment: .bottom) {
             VStack(alignment: .leading) {
-                Text("King : \(brain.kingCounter) / 4").fontWeight(.semibold)
+                Text("Kings : \(brain.kingCounter) / 4").fontWeight(.semibold)
                 Text("Cards Remaining: \(brain.cards.count - 1 > 0 ?  brain.cards.count - 1 : 0 )").fontWeight(.semibold)
             }
             .font(.system(Font.TextStyle.body, design: .rounded))
