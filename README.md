@@ -1,6 +1,9 @@
 # King-s-Cup
 Classic drinking game on iOS/MacOS
 
+| ![](images/welcomeLight.gif) | ![](images/welcomeDark.gif) |
+| --- | --- |
+
 ![](images/landscape.gif) 
 
 ## Technologies Used
