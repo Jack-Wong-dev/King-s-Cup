@@ -35,13 +35,14 @@ struct UsedCardsView: View {
                 
                 ScrollView {
                     LazyVGrid(columns: columns) {
-                        ForEach(brain.usedCards, id: \.self) { card in
+                        ForEach(brain.usedCards) { card in
                             Image(card.image)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                         }
                     }
                     .padding(.horizontal)
+                    .drawingGroup()
                 }
             }
         }
