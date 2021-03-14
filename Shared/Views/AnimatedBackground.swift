@@ -46,6 +46,7 @@ struct AnimatedBackground: View {
                     ForEach(vm.cards, content: BlinkingCard.init)
                 }
             }
+            .drawingGroup()
         }
         .ignoresSafeArea()
     }

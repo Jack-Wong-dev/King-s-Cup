@@ -36,26 +36,31 @@ struct MenuScreen: View {
         VStack {
             Button(action: resume) {
                 Text("Resume")
+                    .fontWeight(.semibold)
                     .frame(maxWidth: proxy.size.width * scale)
             }
             
             Button(action: restart) {
                 Text("Restart")
+                    .fontWeight(.semibold)
                     .frame(maxWidth: proxy.size.width * scale)
             }
             
             Button(action: showUsedCards) {
                 Text("Cards Used")
+                    .fontWeight(.semibold)
                     .frame(maxWidth: proxy.size.width * scale)
             }
             
             Button(action: showTutorial) {
                 Text("How to play")
+                    .fontWeight(.semibold)
                     .frame(maxWidth: proxy.size.width * scale)
             }
             
             Button(action: exit) {
                 Text("Exit Game")
+                    .fontWeight(.semibold)
                     .frame(maxWidth: proxy.size.width * scale)
             }
         }

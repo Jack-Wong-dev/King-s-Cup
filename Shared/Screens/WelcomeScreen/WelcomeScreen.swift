@@ -25,7 +25,6 @@ struct WelcomeScreen: View {
         GeometryReader { proxy in
             ZStack(alignment: .center) {
                 AnimatedBackground()
-//                AnimatedBackgroundV2()
  
                 VStack(spacing: 0) {
                     Text("King's Cup")
