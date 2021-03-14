@@ -22,8 +22,15 @@ class AnimatedGridViewModel: ObservableObject {
                 temp.append(.init(rank: rank, suit: suit))
             }
         }
-
-        cards = temp.shuffled()
+        
+        temp.shuffle()
+        
+        for i in 0...19 {
+            let tempCard = temp[i]
+            temp.append(.init(rank: tempCard.rank, suit: tempCard.suit))
+        }
+        
+        cards = temp
     }
 }
 
@@ -32,88 +39,33 @@ struct AnimatedBackground: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @StateObject private var vm = AnimatedGridViewModel()
     
-    var column: [GridItem] {
-        switch (horizontalSizeClass, verticalSizeClass) {
-        case (.compact, .regular):
-            return Array(repeating: .init(), count: 6)
-        case (.regular, .compact):
-            return Array(repeating: .init(), count: 12)
-        default:
-            return Array(repeating: .init(), count: 12)
-        }
-    }
-    
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .center) {
-                LazyVGrid(columns: column) {
+                LazyVGrid(columns: getColumn(proxy)) {
                     ForEach(vm.cards, content: BlinkingCard.init)
                 }
             }
         }
         .ignoresSafeArea()
     }
-}
-
-struct AnimatedBackgroundV2: View {
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    @Environment(\.verticalSizeClass) var verticalSizeClass
-    @StateObject private var vm = AnimatedGridViewModel()
     
-    var column: [GridItem] {
+    func getColumn(_ proxy: GeometryProxy) -> [GridItem] {
         switch (horizontalSizeClass, verticalSizeClass) {
         case (.compact, .regular):
             return Array(repeating: .init(), count: 6)
         case (.regular, .compact):
             return Array(repeating: .init(), count: 12)
         default:
-            return Array(repeating: .init(), count: 12)
-        }
-    }
-    
-    var body: some View {
-        GeometryReader { proxy in
-            ZStack(alignment: .center) {
-                LazyVGrid(columns: column) {
-                    ForEach(0..<53, id: \.self) { _ in
-                        BlinkingCardV2()
-                    }
-                }
+            if proxy.size.width < proxy.size.height {
+                return Array(repeating: .init(), count: 8)
+            } else {
+                return Array(repeating: .init(), count: 12)
             }
         }
-        .ignoresSafeArea()
     }
 }
 
-struct BlinkingCardV2: View {
-    @StateObject private var vm = BlinkingCardViewModel()
-    @State private var isAnimating = false
-    @State private var currentCard = Card(rank: .eight, suit: .hearts)
-
-    var body: some View {
-        Image(vm.currentCard.image)
-            .resizable()
-            .scaledToFit()
-            .opacity(isAnimating ? 1 : 0)
-            .onAppear(perform: startAnimation)
-    }
-    
-    private func startAnimation() {
-        vm.setTimer()
-        withAnimation(Animation.easeInOut(duration: vm.duration)
-                        .repeatForever(autoreverses: true)
-                        .delay(vm.delay)) {
-            isAnimating = true
-        }
-    }
-    
-//    private func animate(_ newCard: Card) {
-//        withAnimation(Animation.easeInOut(duration: vm.duration)
-//                        .delay(vm.delay)) {
-//            card = newCard
-//        }
-//    }
-}
 
 class BlinkingCardViewModel: ObservableObject {
     @Published var cards = [Card]()
@@ -148,7 +100,7 @@ class BlinkingCardViewModel: ObservableObject {
 
 
 struct BlinkingCard: View {
-    let card: Card
+    var card: Card
     @State private var isAnimating = false
 
     var body: some View {
@@ -157,8 +109,11 @@ struct BlinkingCard: View {
             .scaledToFit()
             .opacity(isAnimating ? 1 : 0)
             .onAppear(perform: startAnimation)
+            .onDisappear(perform: {
+                isAnimating = false
+            })
     }
-    
+
     private func startAnimation() {
         withAnimation(Animation.easeInOut(duration: .random(in: 1.0...2.0))
                         .repeatForever(autoreverses: true)

@@ -14,6 +14,7 @@ struct King_s_CupApp: App {
     var body: some Scene {
         WindowGroup {
             MotherView()
+//            RandomAnimatedGrid()
 //            AnimatedBackground()
                 .buttonStyle(SelectionButtonStyle())
                 .environmentObject(appStateContainer)

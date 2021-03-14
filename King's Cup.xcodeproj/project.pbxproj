@@ -15,6 +15,7 @@
 		0A5C6A5B25F6E0170017AF63 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A5A25F6E0170017AF63 /* MenuScreen.swift */; };
 		0A5C6A5E25F6E0630017AF63 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A5D25F6E0630017AF63 /* WelcomeScreen.swift */; };
 		0A5C6A6225F6E3190017AF63 /* SelectionButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C6A6125F6E3190017AF63 /* SelectionButtonStyle.swift */; };
+		0A74DB6B25FD676000C62332 /* RandomAnimatedGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A74DB6A25FD676000C62332 /* RandomAnimatedGrid.swift */; };
 		0AB3C51725F6F681004C3EE2 /* FlipEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3C51625F6F681004C3EE2 /* FlipEffect.swift */; };
 		0AB3C54425F73068004C3EE2 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB3C54325F73068004C3EE2 /* Image+Extension.swift */; };
 		0AD6F53E25F342920078B6FF /* King_s_CupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F52B25F342870078B6FF /* King_s_CupApp.swift */; };
@@ -45,6 +46,7 @@
 		0A5C6A5A25F6E0170017AF63 /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
 		0A5C6A5D25F6E0630017AF63 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		0A5C6A6125F6E3190017AF63 /* SelectionButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButtonStyle.swift; sourceTree = "<group>"; };
+		0A74DB6A25FD676000C62332 /* RandomAnimatedGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAnimatedGrid.swift; sourceTree = "<group>"; };
 		0AB3C51625F6F681004C3EE2 /* FlipEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipEffect.swift; sourceTree = "<group>"; };
 		0AB3C54325F73068004C3EE2 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		0AD6F52B25F342870078B6FF /* King_s_CupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = King_s_CupApp.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				0A2C145D25FC91B900DE9746 /* AnimatedBackground.swift */,
+				0A74DB6A25FD676000C62332 /* RandomAnimatedGrid.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				0AEBBEB225F362490035CB24 /* GameScreen.swift in Sources */,
 				0AE8188525F998A500C78989 /* CardPile.swift in Sources */,
 				0A2C145E25FC91B900DE9746 /* AnimatedBackground.swift in Sources */,
+				0A74DB6B25FD676000C62332 /* RandomAnimatedGrid.swift in Sources */,
 				0AEBBE8C25F34C1F0035CB24 /* Rank.swift in Sources */,
 				0AFEB68625FC7967002BF59A /* MotherView.swift in Sources */,
 				0A5C6A6225F6E3190017AF63 /* SelectionButtonStyle.swift in Sources */,
