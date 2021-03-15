@@ -25,50 +25,47 @@ struct WelcomeScreen: View {
         GeometryReader { proxy in
             ZStack(alignment: .center) {
                 AnimatedBackground()
- 
-                VStack(spacing: 0) {
+                
+                VStack(spacing: 20) {
                     Text("King's Cup")
                         .font(.system(Font.TextStyle.largeTitle, design: .rounded))
                         .fontWeight(.bold)
-                        .padding()
                         .background(
                             Color(.systemBackground).blur(radius: 20)
                         )
                     
-                    VStack(spacing: 20) {
-                        Button(action: play) {
-                            Text("Play")
-                                .fontWeight(.semibold)
-                                .frame(maxWidth: proxy.size.width * scale)
-                        }
-                        
-                        Button(action: showTutorial) {
-                            Text("How to play")
-                                .fontWeight(.semibold)
-                                .frame(maxWidth: proxy.size.width * scale)
-                        }
-                        
-                        Button(action: openOptionsMenu) {
-                            HStack {
-                                Text("Options")
-                                    .fontWeight(.semibold)
-                                
-                                + Text(" (Coming Soon)")
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.red)
-                            }
+                    Button(action: play) {
+                        Text("Play")
+                            .fontWeight(.semibold)
                             .frame(maxWidth: proxy.size.width * scale)
-                        }
-                        .disabled(true)
                     }
                     
+                    Button(action: showTutorial) {
+                        Text("How to play")
+                            .fontWeight(.semibold)
+                            .frame(maxWidth: proxy.size.width * scale)
+                    }
+                    
+                    Button(action: openOptionsMenu) {
+                        HStack {
+                            Text("Options")
+                                .fontWeight(.semibold)
+                                
+                                + Text(" (Coming Soon)")
+                                .fontWeight(.semibold)
+                                .foregroundColor(.red)
+                        }
+                        .frame(maxWidth: proxy.size.width * scale)
+                    }
+                    .disabled(true)
                 }
-                .font(.system(Font.TextStyle.body, design: .rounded))
-                .frame(
-                    width: proxy.frame(in: .global).width,
-                    height: proxy.frame(in: .global).height
-            )
+                
             }
+            .font(.system(Font.TextStyle.body, design: .rounded))
+            .frame(
+                width: proxy.frame(in: .global).width,
+                height: proxy.frame(in: .global).height
+            )
         }
     }
     
