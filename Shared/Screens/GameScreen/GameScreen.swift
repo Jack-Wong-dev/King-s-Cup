@@ -18,7 +18,8 @@ struct GameScreen: View {
     var body: some View {
         GeometryReader { proxy in
             ZStack {
-                Color.background.ignoresSafeArea()
+                LinearGradient(gradient: Gradient(colors: [Color.lighting, Color.background]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .ignoresSafeArea()
                 
                 if gameState == .finished {
                     ZStack {
