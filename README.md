@@ -10,7 +10,7 @@ Classic drinking game on iOS/iPadOS
 
 ## Technologies Used
 * SwiftUI (https://developer.apple.com/documentation/swiftui)
-* Combine (https://firebase.google.com/docs)
+* Combine (https://developer.apple.com/documentation/combine)
 
 | Swiping in Portrait | Showing Used Cards |
 | --- | --- |
